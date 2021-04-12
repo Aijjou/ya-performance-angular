@@ -1,0 +1,70 @@
+<div class="container-fluid d-flex flex-column  align-items-center">
+    <div class="w-100 d-flex flex-column justify-content-around main">
+        <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
+            <div class="situation d-flex flex-column justify-content-center mb-4">
+                <h3 class="align-self-center"><b>Ou habitez-vous</b> </h3>
+                <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
+                    aria-label="Basic radio toggle button group" id="btnradio">
+                    <div class="d-flex flex-row justify-content-center m-2">
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio1">
+                                En Ile de France
+                            </label>
+                        </div>
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-success w-50 annee-button  align-self-center" for="btnradio2">
+                                Hors Ile de France
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-25 align-self-center">
+                <div class="mb-2">
+                    <hr class="solid">
+                </div>
+            </div>
+            <div class="charge d-flex flex-column justify-content-center mt-4">
+                <h3 class="align-self-center"><b>Votre revenue de référence</b> </h3>
+                <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
+                    aria-label="Basic radio toggle button group" id="btnradio11">
+                    <div class="d-flex flex-row justify-content-center m-2">
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio6" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center revenu1" for="btnradio6">Inférieur à 30572 &euro;
+                            </label>
+                        </div>
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio7" autocomplete="off">
+                            <label class="btn btn-outline-success w-50  align-self-center revenu2" for="btnradio7">
+                                Compris entre 30572 &euro; et 39192 &euro;
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center m-2">
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio8" autocomplete="off"
+                                checked>
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center revenu3" for="btnradio8">Compris entre 39192 &euro; et 60336 &euro;
+                            </label>
+                        </div>
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio9" autocomplete="off">
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center revenu4" for="btnradio9">
+                                Supérieur à 39192 &euro;
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
+        <a routerLink="/situation-familliale" class="btn w-25 retour">Retour</a>
+        <a routerLink="/" class="btn w-25 suivant">Suivant</a>
+    </div>
+</div>

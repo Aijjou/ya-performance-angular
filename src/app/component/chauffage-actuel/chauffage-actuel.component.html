@@ -1,0 +1,86 @@
+<div class="container-fluid d-flex flex-column  align-items-center">
+    <div class="w-100 d-flex flex-column justify-content-around main">
+        <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
+            aria-label="Basic outlined example" id="btnradio">
+            <h3 class="align-self-center"><b>Votre equipement de chauffage actuel</b></h3>
+            <div class="d-flex flex-column justify-content-center w-50 align-self-center">
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio1">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/gas.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à
+                                    condensation</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio2">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/hot-water.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à gaz
+                                    classique</label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio3">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/natural-gas.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière basse
+                                    température</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio4">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/heater2.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Radiateur gaz
+                                    naturel</label></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
+            <h3 class="align-self-center"><b>Votre energie de chauffage actuelle</b> </h3>
+            <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
+                aria-label="Basic radio toggle button group" id="btnradio9">
+                <div class="d-flex flex-row justify-content-center m-2">
+                    <div class="w-25 d-flex flex-row justify-content-center">
+                        <input type="radio" class="btn-check" name="btnradio9" id="btnradio5" autocomplete="off"
+                            checked>
+                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio5"><img
+                                src="/assets/flash.png" class="electriciteImg col-2 p-0 m-0 align-self-center">
+                            <div class="col-10 p-0 m-0">Electricité</div>
+                        </label>
+                    </div>
+                    <div class="w-25 d-flex flex-row justify-content-center">
+                        <input type="radio" class="btn-check" name="btnradio9" id="btnradio6" autocomplete="off">
+                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio6"> <img
+                                src="/assets/flame.png" alt="" class="flammeImg col-2 p-0 m-0 align-self-center">
+                            <div class="col-10">Gaz naturel</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-center m-2">
+                    <div class="w-25 d-flex flex-row justify-content-center">
+                        <input type="radio" class="btn-check" name="btnradio9" id="btnradio7" autocomplete="off"
+                            checked>
+                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio7"><img
+                                src="/assets/fuel.png" alt="" class="fuelImg col-2 p-0 m-0 align-self-center"> <div class="col-10">Fioul</div> </label>
+                    </div>
+                    <div class="w-25 d-flex flex-row justify-content-center">
+                        <input type="radio" class="btn-check" name="btnradio9" id="btnradio8" autocomplete="off">
+                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio8"><img
+                                src="/assets/heat.png" alt="" class="pompeImg col-2 p-0 m-0 align-self-center"> <div class="col-10">Pompe à chaleur</div></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
+        <a routerLink="/logement-actuel" class="btn w-25 retour">Retour</a>
+        <a routerLink="/chauffage-installation" class="btn w-25 suivant">Suivant</a>
+    </div>
+</div>

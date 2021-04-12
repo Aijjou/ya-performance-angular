@@ -1,0 +1,73 @@
+<div class="container-fluid d-flex flex-column  align-items-center">
+    <div class="w-100 d-flex flex-column justify-content-around main">
+        <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
+            aria-label="Basic outlined example" id="btnradio">
+            <h3 class="align-self-center"><b>Quel matériel souhaitez-vous installer?</b></h3>
+            <div class="d-flex flex-column justify-content-center w-50 align-self-center">
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio1">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/gas.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à
+                                    condensation</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio2">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/wood.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à granulés de bois</label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio3">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/natural-gas.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière basse
+                                    température</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio4">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/hybride-gaz.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur hybride-gaz</label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio5">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/granule.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à bûches</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio6">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/air-eau.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur air-air</label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" checked>
+                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio7">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/air-air.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur air-eau </label></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
+        <a routerLink="/chauffage-actuel" class="btn w-25 retour">Retour</a>
+        <a routerLink="/montant-estimatif" class="btn w-25 suivant">Suivant</a>
+    </div>
+</div>
