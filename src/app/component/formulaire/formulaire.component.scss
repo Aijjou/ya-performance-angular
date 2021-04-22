@@ -2,16 +2,6 @@
     height: 87vh;
     color: white;
 }
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 7px 3px 3px grey;
-    align-items: center;
-    background-color: #5f5f5f;
-}
-
 .mail,
 .nom,
 .prenom {
@@ -21,14 +11,6 @@
 .form-control {
     color: #22844e;
     font-weight: 500;
-}
-
-a{
-    background-color: #22844e;
-}
-
-.btn {
-    color: white;
 }
 
 label,
@@ -41,7 +23,11 @@ p {
     font-size: 10px;
 }
 
-.button-group{
+.button-group {
     position: absolute;
-    bottom : 8vh;
-  }
+    bottom: 8vh;
+}
+
+
+
+
