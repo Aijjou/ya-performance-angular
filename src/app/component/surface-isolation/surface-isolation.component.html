@@ -1,0 +1,18 @@
+<form class="container-fluid d-flex flex-column  align-items-center"  [formGroup]="surfaceIsolationForm" (ngSubmit)="onSubmit()" >
+    <div class="w-100 d-flex flex-column justify-content-around main">
+        <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
+            aria-label="Basic outlined example" id="btnradio">
+            <div class="surface d-flex flex-column justify-content-center w-50 align-self-center mt-0">
+                <h3 class="align-self-center mt-4"><b>Quelle surface souhaitez-vous isoler?</b></h3>
+                <div class="form-floating mb-3 align-self-center w-50 ">
+                    <input type="number" class="form-control w-100 text-dark" id="floatingInput" placeholder="2000" [value]="surface" formControlName="surface">
+                    <label for="floatingInput" class="text-dark">m2</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
+        <button (click)="return()" class="btn w-25 retour">Retour</button>
+        <button type="submit" class="btn w-25 suivant">Suivant</button>
+    </div>
+</form>

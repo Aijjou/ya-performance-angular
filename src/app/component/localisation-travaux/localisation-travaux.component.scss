@@ -1,0 +1,44 @@
+.container-fluid {
+    height: 87vh;
+    color: white;
+}
+
+.main{
+    height:75vh;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+}
+
+
+
+h3 {
+    color: #5f5f5f;
+}
+.button-group {
+    position: absolute;
+    bottom: 8vh;
+}
+
+
+
+.appt-button, .maison-button{
+    width: 120px;
+    border-color: transparent;
+}
+
+.typeChaudiere{
+    font-size: 13px;
+}
+
+.electriciteImg , .flammeImg, .fuelImg, .pompeImg{
+
+    height:20px;
+    width: 20px;
+
+}
+hr.solid {
+    border-top: 2px solid #999;
+}

@@ -1,0 +1,90 @@
+.container-fluid {
+    height: 87vh;
+    color: white;
+}
+
+.main {
+    height: 75vh;
+}
+
+.card-header{
+
+    border-bottom:1px solid white;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+}
+
+.indice1{
+    font-size: 10px;
+}
+
+.text-legal-1{
+    font-size: 9px;
+}
+.parMois {
+    background-color: white;
+    color: #2582e9;
+}
+
+.montant,
+.valeur {
+    font-size: 18px;
+}
+
+.messageTaux {
+    font-size: 15px;
+}
+.resteACharge {
+    background-color: white;
+    color: #2582e9;
+}
+.aideTotal {
+    background-color: white;
+    color: #2582e9;
+}
+
+h3 {
+    color: #5f5f5f;
+}
+.button-group {
+    position: absolute;
+    bottom: 8vh;
+}
+
+
+
+.appt-button,
+.maison-button {
+    width: 120px;
+    border-color: transparent;
+}
+
+.typeChaudiere {
+    font-size: 13px;
+}
+
+.electriciteImg,
+.flammeImg,
+.fuelImg,
+.pompeImg {
+    height: 20px;
+    width: 20px;
+}
+hr.solid {
+    border-top: 2px solid white;
+}
+
+.messageTaux{
+    font-size: 14px;
+}
+
+.valeur-mensualite{
+    font-size: 20px;
+}
+
+.periode{
+    font-size: 12px;
+}

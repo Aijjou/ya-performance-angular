@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(private headerService: HeaderService) { }
 
   ngOnInit(): void {
-    this.headerService.change.subscribe(titre => {
+    this.headerService.change.subscribe((titre: string) => {
       this.titre = titre;
 
     })

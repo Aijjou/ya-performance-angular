@@ -1,0 +1,113 @@
+<form class="container-fluid d-flex flex-column  align-items-center"[formGroup]="equipementActuelForm" (ngSubmit)="onSubmit()">
+    <div class="w-100 d-flex flex-column justify-content-around main">
+        <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 " role="group"
+            aria-label="Basic outlined example" id="equipement">
+            <h3 class="align-self-center mt-4"><b>Votre equipement de chauffage actuel</b></h3>
+            <div class="d-flex flex-column justify-content-center w-50 align-self-center">
+                <div class="d-flex flex-row justify-content-center">
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio1" autocomplete="off" checked [value]="typeChauffage1" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio1">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='gaz'"><img src="/assets/images/gas.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/convecter-electrique.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='pompe'"><img src="/assets/images/pompe-air-air.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='gpl'"><img src="/assets/images/chaudiere-gpl-basse-temperature.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='charbon'"><img src="/assets/images/chaudiere-charbon.PNG">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='fioul'"><img src="/assets/images/chaudiere-fioul-basse-temperature.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/chaudiere-bois.png"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere" [ngStyle]="{'font-size':energie=='fioul'?'11px':'14px'}">{{typeChauffage1}}</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio2" autocomplete="off" [value]="typeChauffage2" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio2">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='gaz'"><img src="/assets/images/hot-water.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/chauffage-electrique.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='pompe'"><img src="/assets/images/pompe-air-eau.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='gpl'"><img src="/assets/images/chaudiere-gpl-condensation.PNG"></div>
+                            <div class="card-image p-2" *ngIf="energie=='charbon'"><img src="/assets/images/poele-charbon.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='fioul'"><img src="/assets/images/chaudiere-fioul-condensation.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/poele-buche.png"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere" >{{typeChauffage2}}
+                                </label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center" *ngIf="energie=='electricite' || energie=='bois' || energie=='gpl' || energie=='gaz'|| energie=='pompe'|| energie=='fioul'">
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio3" autocomplete="off" checked [value]="typeChauffage3" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio3">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='gaz'"><img
+                                    src="/assets/images/natural-gas.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/chaudiere-electrique.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='pompe'"><img src="/assets/images/pompe-eau-eau.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='gpl'"><img src="/assets/images/chaudiere-gpl-standard.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='fioul'"><img src="/assets/images/chaudiere-fioul-strandard.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/insert-chemine.png"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere">{{typeChauffage3}}</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio4" autocomplete="off" [value]="typeChauffage4" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio4">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='gaz'"><img src="/assets/images/heater2.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/panneau-rayonnant.PNG"></div>
+                            <div class="card-image p-2" *ngIf="energie=='pompe'"><img src="/assets/images/pompe-geothermique.png">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='gpl'"><img src="/assets/images/radiateur-gpl.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='fioul'"><img src="/assets/images/poele-fioul.svg">
+                            </div>
+                            <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/chaudiere-granule-bois.PNG"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere" [ngStyle]="{'font-size':energie=='pompe'?'11px':'14px'}">{{typeChauffage4}}
+                                </label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center" *ngIf="energie=='electricite' || energie=='bois' || energie=='gpl'">
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio5" autocomplete="off"  [value]="typeChauffage5" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio5">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/chauffage-toit.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='gpl'"><img src="/assets/images/poele-gpl.png"></div>
+                            <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/poele-granule.png"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere">{{typeChauffage5}}</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="equipement" id="btnradio6" autocomplete="off" *ngIf="energie=='electricite'" [value]="typeChauffage6" formControlName="equipement">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio6" *ngIf="energie=='electricite'">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2" *ngIf="energie=='electricite'"><img
+                                    src="/assets/images/sol-chauffant.png"></div>
+                            <div class="card-body p-0"><label for=""
+                                    class="text-center typeChaudiere">{{typeChauffage6}}</label></div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="button-group w-50 d-flex flex-row justify-content-around mt-2">
+        <button (click)="return()" class="btn w-25 retour">Retour</button>
+        <button type="submit" class="btn w-25 suivant" [disabled]="!equipementActuelForm.valid"  >Suivant</button>
+    </div>
+</form>
