@@ -1,52 +1,112 @@
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-
-    <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-1 mb-4">
-        <form action="" class="w-100 d-flex flex-column justify-content-center align-items-center p-2" method="POST">
+<form class="form container-fluid d-flex flex-column justify-content-center align-items-center "
+    [formGroup]="prospectForm" (ngSubmit)="onSubmit()">
+    <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-1 mb-4 ">
+        <div class="w-100 d-flex flex-column justify-content-center align-items-center p-2">
             <div class="btn-group d-flex flex-row justify-content-around w-100 civilite mt-4" role="group"
                 aria-label="Basic radio toggle button group">
                 <div class="w-100 d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <input type="radio" class="btn-check form-control" name="civilite" value="madame" id="btnradio1"
+                        autocomplete="off" checked formControlName="civilite">
                     <label class="btn btn-outline-success w-50" for="btnradio1">Madame</label>
                 </div>
                 <div class="w-100 d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <input type="radio" class="btn-check form-control" name="civilite" id="btnradio2" value="monsieur"
+                        autocomplete="off" formControlName="civilite">
                     <label class="btn btn-outline-success w-50" for="btnradio2">Monsieur</label>
                 </div>
             </div>
             <div class="w-75 mt-2">
-                <div class="form-group mt-3">
-                    <label for="inputAddress" class="nom">Nom</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="Nom" required>
-                </div>
-                <div class="form-group mt-3">
-                    <label for="inputAddress2" class="prenom">Prenom</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Prenom" required>
+                <div class="form-group mt-3 row">
+                    <div class="col-md-6"> <label for="inputAddress" class="nom">Nom</label>
+                        <input type="text" class="form-control " id="inputNom" placeholder="Nom" formControlName="nom">
+                        <small *ngIf="nom.invalid && (nom.touched || nom.dirty)" class="text-danger p-0">ce champ est requis
+                        </small>
+                    </div>
+                    <div class="col-md-6"> <label for="inputAddress2" class="prenom">Prenom</label>
+                        <input type="text" class="form-control" id="inputPrenom" placeholder="Prenom"
+                            formControlName="prenom">
+                            <small *ngIf="prenom.invalid && (prenom.touched || prenom.dirty)" class=" text-dangerp-0">ce champ est requis
+                            </small>
+                    </div>
                 </div>
                 <div class="form-group mt-3 row">
                     <div class="col-md-6"><label for="inputMail" class="mail">Mail</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Email" required>
+                        <input type="email" class="form-control" id="inputMail" placeholder="Email"
+                            formControlName="mail">
+                        <div *ngIf="mail.invalid && (mail.touched || mail.dirty)">
+                            <small *ngIf="mail.errors.required" class="text-danger">
+                                Ce champ est requis
+                            </small>
+                            <div *ngIf="mail.errors?.email">
+                                Please provide a valid email address
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6"><label for="inputPhone" class="mail">Téléphone</label>
-                        <input type="tel" id="phone" name="phone" class="form-control"
-                            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Téléphone" required>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Téléphone"
+                            formControlName="phone">
+                        <div *ngIf="phone.invalid && (phone.touched || phone.dirty)">
+                            <small *ngIf="phone.errors.required" class="text-danger">
+                                Ce champ est requis
+                            </small>
+                            <div *ngIf="phone.errors?.email">
+                                Téléphone non valide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3 row">
+                    <div class="col-md-6"><label for="inputMail" class="mail">Ville</label>
+                        <input type="text" class="form-control" id="inputVille" placeholder="Ville"
+                            formControlName="ville">
+                        <div *ngIf="ville.invalid && (ville.touched || ville.dirty)">
+                            <small *ngIf="ville.errors.required" class="text-danger">
+                                Ce champ est requis
+                            </small>
+                            <div *ngIf="ville.errors?.email">
+                                Téléphone non valide
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6"><label for="inputPhone" class="mail">Code postal</label>
+                        <input type="tel" id="postal" name="postal" class="form-control" placeholder="Code postal"
+                            formControlName="code">
+                        <div *ngIf="code.invalid && (code.touched || code.dirty)">
+                            <small *ngIf="code.errors.required" class="text-danger">
+                                Ce champ est requis
+                            </small>
+                            <div *ngIf="code.errors?.email">
+                                Téléphone non valide
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="w-75 mt-3 mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                    <input class="form-check-input" type="checkbox" value="condition" id="flexCheckDefault"
+                        formControlName="condition">
                     <label class="form-check-label" for="flexCheckDefault">
-                        J'accèpte les conditions générales d'utilisation
+                        J'accèpte les conditions générales d'utilisation  <span *ngIf="condition.invalid && (condition.touched || condition.dirty)">
+                            <small *ngIf="condition.errors.required">
+                                Ce champ est requis
+                            </small>
+                            <div *ngIf="condition.errors?.email">
+                                Téléphone non valide
+                            </div>
+                        </span>
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <input class="form-check-input" type="checkbox" value="promo" id="flexCheckChecked"
+                        formControlName="promo" checked>
                     <label class="form-check-label" for="flexCheckChecked">
                         Etre informé des offres promotionnelles en lien avec la rénovation
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                    <input class="form-check-input" type="checkbox" value="contactConseiller" id="flexCheckChecked"
+                        formControlName="contactConseiller">
                     <label class="form-check-label" for="flexCheckChecked">
                         Etre contacté par un conseiller "renovation-travaux" pour le suivi de votre projet
                     </label>
@@ -60,26 +120,30 @@
                     Les données collectées seront communiquées aux seuls destinataires suivants : [destinataires des
                     données].
 
-                    Les données sont conservées pendant [durée de conservation des données prévue par le responsable du
+                    Les données sont conservées pendant [durée de conservation des données prévue par le responsable
+                    du
                     traitement ou critères permettant de la déterminer].
 
-                    Vous pouvez accéder aux données vous concernant, les rectifier, demander leur effacement ou exercer
+                    Vous pouvez accéder aux données vous concernant, les rectifier, demander leur effacement ou
+                    exercer
                     votre droit à la limitation du traitement de vos données. (en fonction de la base légale du
                     traitement, mentionner également : Vous pouvez retirer à tout moment votre consentement au
-                    traitement de vos données ; Vous pouvez également vous opposer au traitement de vos données ; Vous
+                    traitement de vos données ; Vous pouvez également vous opposer au traitement de vos données ;
+                    Vous
                     pouvez également exercer votre droit à la portabilité de vos données)
 
                     Consultez le site cnil.fr pour plus d’informations sur vos droits.
 
-                    Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce dispositif,
+                    Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce
+                    dispositif,
                     vous pouvez contacter (le cas échéant, notre délégué à la protection des données ou le service
                     chargé de l’exercice de ces droits) : [adresse électronique, postale, coordonnées téléphoniques,
                     etc.] </p>
             </div>
-        </form>
+        </div>
     </div>
     <div class="button-group w-50 d-flex flex-row justify-content-around">
-        <a routerLink="/home" class="btn w-25">Retour</a>
-        <a routerLink="/logement-actuel" class="btn w-25">Validation</a>
+        <a (click)="return()" class="btn w-25 retour text-focus-in">Retour</a>
+        <button type="submit" [disabled]="!prospectForm.valid" class="btn w-25 suivant ">Validation</button>
     </div>
-</div>
+</form>

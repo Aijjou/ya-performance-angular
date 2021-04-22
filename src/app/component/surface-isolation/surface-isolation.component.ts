@@ -14,7 +14,7 @@ export class SurfaceIsolationComponent implements OnInit {
   surfaceIsolationForm: FormGroup;
   simulation: Simulation;
   prospect: Prospect;
-  private titre: string = " ";
+  private titre: string;
   private id: number;
   surface: number;
 
