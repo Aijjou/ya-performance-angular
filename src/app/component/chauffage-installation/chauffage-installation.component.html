@@ -1,65 +1,71 @@
-<div class="container-fluid d-flex flex-column  align-items-center">
+<form class="container-fluid d-flex flex-column  align-items-center form" [formGroup]="chauffageInstallationForm" (ngSubmit)="onSubmit()" autocomplete="off">
     <div class="w-100 d-flex flex-column justify-content-around main">
         <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
-            aria-label="Basic outlined example" id="btnradio">
-            <h3 class="align-self-center"><b>Quel matériel souhaitez-vous installer?</b></h3>
+            aria-label="Basic outlined example" id="equipementInstall">
+            <h3 class="align-self-center text-dark"><b>{{question}}</b></h3>
             <div class="d-flex flex-column justify-content-center w-50 align-self-center">
                 <div class="d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio1">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio1" autocomplete="off" [value]="card1" checked  formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio1">
                         <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/gas.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à
-                                    condensation</label></div>
+                            <div class="card-image p-2" *ngIf="id==1"><img src="/assets/images/gas.png"></div>
+                            <div class="card-image p-2" *ngIf="id==2"><img src="/assets/images/sol.png"></div>
+                            <div class="card-body p-0" ><label for="" class="text-center typeChaudiere">{{card1}}</label></div>
+                            
                         </div>
                     </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio2">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio2" autocomplete="off" [value]="card2" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio2">
                         <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/wood.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à granulés de bois</label></div>
-                        </div>
-                    </label>
-                </div>
-                <div class="d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio3">
-                        <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/natural-gas.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière basse
-                                    température</label></div>
-                        </div>
-                    </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio4">
-                        <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/hybride-gaz.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur hybride-gaz</label></div>
+                            <div *ngIf="id==1" class="card-image p-2"><img src="/assets/images/wood.png"></div>
+                            <div *ngIf="id==2" class="card-image p-2"><img src="/assets/images/grenier-amenage.PNG"></div>
+                            <div  class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card2}}</label></div>
+                       
                         </div>
                     </label>
                 </div>
                 <div class="d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" checked>
-                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio5">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio3" autocomplete="off" [value]="card3" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio3">
                         <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/granule.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Chaudière à bûches</label></div>
+                            <div *ngIf="id==1" class="card-image p-2"><img src="/assets/images/natural-gas.png"></div>
+                            <div *ngIf="id==2" class="card-image p-2"><img src="/assets/images/mur-de-brique-ext.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card3}}</label></div>
                         </div>
                     </label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-                    <label class="btn btn-outline-success w-25 p-1 appt-button" for="btnradio6">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio4" autocomplete="off" [value]="card4" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio4">
                         <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/air-eau.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur air-air</label></div>
+                            <div *ngIf="id==1" class="card-image p-2"><img src="/assets/images/hybride-gaz.png"></div>
+                            <div *ngIf="id==2" class="card-image p-2"><img src="/assets/images/mur-interieur.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card4}}</label></div>
                         </div>
                     </label>
                 </div>
                 <div class="d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off" checked>
-                    <label class="btn btn-outline-success w-25 p-1 maison-button" for="btnradio7">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio5" autocomplete="off" [value]="card5" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio5">
                         <div class="card p-1 m-1">
-                            <div class="card-image p-2"><img src="/assets/air-air.png"></div>
-                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">Pompe à chaleur air-eau </label></div>
+                            <div *ngIf="id==1" class="card-image p-2"><img src="/assets/images/granule.png"></div>
+                            <div *ngIf="id==2" class="card-image p-2"><img src="/assets/images/toiture.PNG"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card5}}</label></div>
+                        </div>
+                    </label>
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio6" autocomplete="off" [value]="card6" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio6">
+                        <div class="card p-1 m-1">
+                            <div *ngIf="id==1" class="card-image p-2"><img src="/assets/images/air-eau.png"></div>
+                            <div *ngIf="id==2" class="card-image p-2"><img src="/assets/images/toit.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card6}}</label></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="d-flex flex-row justify-content-center" *ngIf="id==1">
+                    <input type="radio" class="btn-check" name="equipementInstall" id="btnradio7" autocomplete="off" [value]="card7" formControlName="equipementInstall">
+                    <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio7">
+                        <div class="card p-1 m-1">
+                            <div class="card-image p-2"><img src="/assets/images/air-air.png"></div>
+                            <div class="card-body p-0"><label for="" class="text-center typeChaudiere">{{card7}} </label></div>
                         </div>
                     </label>
                 </div>
@@ -67,7 +73,7 @@
         </div>
     </div>
     <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
-        <a routerLink="/chauffage-actuel" class="btn w-25 retour">Retour</a>
-        <a routerLink="/montant-estimatif" class="btn w-25 suivant">Suivant</a>
+        <button (click)="return()" class="btn w-25 retour">Retour</button>
+        <button type="submit" class="btn w-25 suivant" [disabled]="!chauffageInstallationForm.valid">Suivant</button>
     </div>
-</div>
+</form>

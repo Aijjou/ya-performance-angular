@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
 
 @Component({
@@ -7,14 +10,109 @@ import { HeaderService } from 'src/app/service/header.service';
   styleUrls: ['./chauffage-actuel.component.scss']
 })
 export class ChauffageActuelComponent implements OnInit {
-  private titre: string = " ";
+  chauffageActuelForm: FormGroup;
+  unite: string = "Kwh";
+  titre: string = " ";
+  id: number;
+  id2: any;
+  conso: number;
+  simulation: Simulation;
 
 
-  constructor(private headerService: HeaderService) { }
+
+
+
+  @Input() value: string;
+  @Output() valueChosen: EventEmitter<any> = new EventEmitter();
+
+  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
+
+    this.id = this.route.snapshot.params.id;
+   
+
+
+  }
 
   ngOnInit(): void {
     this.titre = "Mon logement actuel"
     this.headerService.changementTitre(this.titre);
+    var simulation2 = localStorage.getItem("simulation")
+    this.simulation = JSON.parse(simulation2);
+    this.chauffageActuelForm = this.fb.group({
+
+      energie: ['', Validators.required],
+      conso: ['', [Validators.required, Validators.pattern(/^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]*\.[0-9]*[1-9][0-9]*)$/)]]
+
+
+    })
+
   }
+
+
+  return(){
+    this.router.navigate(['home', this.id, 'logement-actuel']);
+  }
+
+  handleChange(evt:any) {
+
+    switch (evt.target.value) {
+      case "electricté": {
+        this.unite = "Kwh";
+        break;
+      }
+      case "gaz": {
+        this.unite = "Kwh";
+        break;
+      }
+      case "fioul": {
+        this.unite = "Litre";
+        break;
+      }
+      case "bois": {
+        this.unite = "Stère";
+        break;
+      }
+      case "pompe": {
+        this.unite = "Kwh";
+        break;
+      }
+      case "gpl": {
+        this.unite = "m3";
+        break;
+      }
+      case "charbon": {
+        this.unite = "kg";
+        break;
+      }
+      default: {
+        this.unite = "Kwh";
+        break;
+      }
+    }
+
+
+  }
+
+
+
+  onSubmit(): void {
+
+    if (this.chauffageActuelForm.valid) {
+      this.simulation.energie = this.chauffageActuelForm.get('energie').value;
+      this.simulation.conso = this.chauffageActuelForm.get('conso').value;
+      localStorage.setItem("simulation", JSON.stringify(this.simulation));
+
+      this.router.navigate(['home', this.id, 'equipement-actuel']);
+
+    } else {
+
+      this.router.navigate(['home', this.id, 'equipement-actuel']);
+    }
+
+  }
+
+
+
+
 
 }

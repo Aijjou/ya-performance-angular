@@ -1,20 +1,20 @@
-<div class="container-fluid d-flex flex-column  align-items-center">
+<form class="container-fluid d-flex flex-column  align-items-center form" [formGroup]="situationFamillialeForm" (ngSubmit)="onSubmit()">
     <div class="w-100 d-flex flex-column justify-content-around main">
         <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
             <div class="situation d-flex flex-column justify-content-center mb-4">
                 <h3 class="align-self-center"><b>Votre situation maritale</b> </h3>
                 <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
-                    aria-label="Basic radio toggle button group" id="btnradio">
+                    aria-label="Basic radio toggle button group" id="situationFamilliale">
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="situationFamilliale" value="marie" id="btnradio1" autocomplete="off"
+                                checked formControlName="situationFamilliale">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio1">
                                 Marié(e)
                             </label>
                         </div>
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <input type="radio" class="btn-check" name="situationFamilliale" value="concubinage" id="btnradio2" autocomplete="off" formControlName="situationFamilliale">
                             <label class="btn btn-outline-success w-50 annee-button  align-self-center" for="btnradio2">
                                 En concubinage
                             </label>
@@ -22,21 +22,21 @@
                     </div>
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="situationFamilliale" value="pacs" id="btnradio3" autocomplete="off"
+                                checked formControlName="situationFamilliale">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center"
                                 for="btnradio3">Pacsé(e)</label>
                         </div>
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                            <input type="radio" class="btn-check" name="situationFamilliale" value="celibataire" id="btnradio4" autocomplete="off" formControlName="situationFamilliale">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center"
                                 for="btnradio4">Célibataire</label>
                         </div>
                     </div>
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="situationFamilliale" value="veuf" id="btnradio5" autocomplete="off"
+                                checked formControlName="situationFamilliale">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center"
                                 for="btnradio5">Veuf / Veuve </label>
                         </div>
@@ -51,16 +51,16 @@
             <div class="charge d-flex flex-column justify-content-center mt-4">
                 <h3 class="align-self-center"><b>Autres personnes à charge</b> </h3>
                 <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
-                    aria-label="Basic radio toggle button group" id="btnradio11">
+                    aria-label="Basic radio toggle button group" id="personneCharge">
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio6" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="personneCharge" value="0" id="btnradio6" autocomplete="off"
+                                checked formControlName="personneCharge">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio6">0
                             </label>
                         </div>
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio7" autocomplete="off">
+                            <input type="radio" class="btn-check" name="personneCharge" value="1" id="btnradio7" autocomplete="off" formControlName="personneCharge">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio7">
                                 1
                             </label>
@@ -68,13 +68,13 @@
                     </div>
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio8" autocomplete="off"
-                                checked>
+                            <input type="radio" class="btn-check" name="personneCharge" value="2" id="btnradio8" autocomplete="off"
+                                checked formControlName="personneCharge">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio8">2
                             </label>
                         </div>
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio9" autocomplete="off">
+                            <input type="radio" class="btn-check" name="personneCharge" value="3" id="btnradio9" autocomplete="off" formControlName="personneCharge">
                             <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio9">
                                 3
                             </label>
@@ -82,20 +82,33 @@
                     </div>
                     <div class="d-flex flex-row justify-content-center m-2">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="btnradio11" id="btnradio10" autocomplete="off"
-                                checked>
-                            <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio10">
-                                Plus d'options
+                            <input type="radio" class="btn-check" name="personneCharge" value="4" id="btnradio10" autocomplete="off"
+                                checked formControlName="personneCharge">
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio10">4
                             </label>
                         </div>
-
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="personneCharge" value="5" id="btnradio11" autocomplete="off" formControlName="personneCharge">
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio11">
+                                5
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-center m-2">
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="personneCharge" id="btnradio12" autocomplete="off"
+                                checked formControlName="personneCharge">
+                            <label class="btn btn-outline-success w-50 annee-button align-self-center" for="btnradio12">
+                                6 et plus
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
-        <a routerLink="/montant-estimatif" class="btn w-25 retour">Retour</a>
-        <a routerLink="/situation-fiscale" class="btn w-25 suivant">Suivant</a>
+        <button (click)="return()" class="btn w-25 retour">Retour</button>
+        <button type="submit" class="btn w-25 suivant" [disabled]="!situationFamillialeForm.valid">Suivant</button>
     </div>
-</div>
+</form>

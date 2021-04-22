@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #22844E;
+  background-color: #ADCF43;
   color:white ;
   height: 7vh;
   box-shadow: 3px 3px 3px grey;
@@ -8,8 +8,34 @@
 }
 
 
+@-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
 
 .logo {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 80px;
 }

@@ -83,8 +83,6 @@ export class LocalisationTravauxComponent implements OnInit {
           this.infos = data
         })
         console.log(this.infos);
-        // this.router.navigate(['home', this.id, 'simulation-projet']);
-
       }
     } else {
       if (this.simulation == null || this.prospect == null) {
