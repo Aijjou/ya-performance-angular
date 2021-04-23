@@ -31,7 +31,7 @@ export class MontantEstmatifComponent implements OnInit {
     this.simulation = JSON.parse(simulation2);
     var prospect2 = localStorage.getItem("prospect");
     this.prospect = JSON.parse(prospect2);
-    if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+    if (this.simulation.materielSouhaite == null || this.prospect == null || (this.id == null || 0)) {
       this.router.navigate(['/']);
     } else {
       if (this.id == 1) {
@@ -111,8 +111,7 @@ export class MontantEstmatifComponent implements OnInit {
         }
       }
     }
-console.log(this.montantMateriel);
-console.log(this.montantPose);
+
 
     this.montantEstimatifForm = this.fb.group({
 

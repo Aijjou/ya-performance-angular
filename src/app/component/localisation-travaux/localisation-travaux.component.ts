@@ -37,7 +37,7 @@ export class LocalisationTravauxComponent implements OnInit {
     var prospect2 = localStorage.getItem("prospect");
     this.prospect = JSON.parse(prospect2);
 
-    if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+    if (this.prospect.revenuRef == null || this.prospect.lieuHabitation == null || this.simulation == null || (this.id == null || 0)) {
       this.router.navigate(['/']);
     }
 

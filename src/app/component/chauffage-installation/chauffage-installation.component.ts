@@ -40,6 +40,9 @@ export class ChauffageInstallationComponent implements OnInit {
     var simulation2 = localStorage.getItem("simulation")
     this.simulation = JSON.parse(simulation2);
 
+    if(this.simulation.equipeChauffage == null || this.prospect == null){
+      this.router.navigate(['/']);
+    }
 
 
     if (this.id == 1) {

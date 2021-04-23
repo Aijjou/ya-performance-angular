@@ -45,7 +45,10 @@ export class EquipementActuelComponent implements OnInit {
     var simulation2 = localStorage.getItem("simulation")
     this.simulation = JSON.parse(simulation2);
 
-    
+    if (this.simulation.conso == null || this.simulation.energie == null || this.prospect == null) {
+      this.router.navigate(['/']);
+    }
+
     this.changeWithSimulationType();
 
     this.equipementActuelForm = this.fb.group({
@@ -70,16 +73,21 @@ export class EquipementActuelComponent implements OnInit {
 
 
     if (this.equipementActuelForm.valid) {
-      this.simulation.equipeChauffage = this.equipementActuelForm.get('equipement').value;
-      localStorage.setItem('simulation', JSON.stringify(this.simulation));
-      // alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
-       this.router.navigate(['home', this.id, 'chauffage-installation']);
-
-
+      if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+        this.router.navigate(['/']);
+      } else {
+        this.simulation.equipeChauffage = this.equipementActuelForm.get('equipement').value;
+        localStorage.setItem('simulation', JSON.stringify(this.simulation));
+        // alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
+        this.router.navigate(['home', this.id, 'chauffage-installation']);
+      }
+    } else {
+      if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+        this.router.navigate(['/']);
+      } else {
+        this.router.navigate(['home', this.id, 'equipement-actuel']);
+      }
     }
-
-
-
   }
 
 

@@ -23,7 +23,7 @@ export class SurfaceIsolationComponent implements OnInit {
 
     this.id = this.route.snapshot.params.id;
 
-   }
+  }
 
   ngOnInit(): void {
     this.titre = "Mon projet de rénovation"
@@ -33,18 +33,18 @@ export class SurfaceIsolationComponent implements OnInit {
     var prospect2 = localStorage.getItem("prospect");
     this.prospect = JSON.parse(prospect2);
 
-    if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+    if (simulation2 != null || prospect2 != null) {
+
+      if (this.simulation.materielSouhaite == null || this.prospect == null || (this.id == null || 0)) {
+        this.router.navigate(['/']);
+      }
+      this.surfaceIsolationForm = this.fb.group({
+        surface: ['', [Validators.required, Validators.pattern(/^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]*\.[0-9]*[1-9][0-9]*)$/)]]
+      })
+    } else {
       this.router.navigate(['/']);
+
     }
-
-    this.surfaceIsolationForm = this.fb.group({
-
-      surface: ['', [Validators.required, Validators.pattern(/^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]*\.[0-9]*[1-9][0-9]*)$/)]]
-
-
-
-    })
-
 
 
   }
@@ -65,7 +65,7 @@ export class SurfaceIsolationComponent implements OnInit {
         this.simulation.surfaceIsolation = this.surfaceIsolationForm.get('surface').value;
         localStorage.setItem("simulation", JSON.stringify(this.simulation));
         // alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
-         this.router.navigate(['home', this.id, 'montant-estimatif']);
+        this.router.navigate(['home', this.id, 'montant-estimatif']);
       }
     } else {
       if (this.simulation == null || this.prospect == null) {

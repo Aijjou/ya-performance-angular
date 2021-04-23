@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { Prospect } from 'src/app/model/prospect';
 import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
 
@@ -17,6 +18,7 @@ export class ChauffageActuelComponent implements OnInit {
   id2: any;
   conso: number;
   simulation: Simulation;
+  prospect : Prospect;
 
 
 
@@ -28,9 +30,7 @@ export class ChauffageActuelComponent implements OnInit {
   constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
 
     this.id = this.route.snapshot.params.id;
-   
-
-
+  
   }
 
   ngOnInit(): void {
@@ -38,12 +38,16 @@ export class ChauffageActuelComponent implements OnInit {
     this.headerService.changementTitre(this.titre);
     var simulation2 = localStorage.getItem("simulation")
     this.simulation = JSON.parse(simulation2);
-    this.chauffageActuelForm = this.fb.group({
+    var prospect2 =  localStorage.getItem("prospect");
+    this.prospect = JSON.parse(prospect2);
+    if(this.prospect==null ||this.simulation == null ){
+      this.router.navigate(['/']);
+    } 
 
+
+    this.chauffageActuelForm = this.fb.group({
       energie: ['', Validators.required],
       conso: ['', [Validators.required, Validators.pattern(/^([0-9]*[1-9][0-9]*(\.[0-9]+)?|[0]*\.[0-9]*[1-9][0-9]*)$/)]]
-
-
     })
 
   }
@@ -106,7 +110,7 @@ export class ChauffageActuelComponent implements OnInit {
 
     } else {
 
-      this.router.navigate(['home', this.id, 'equipement-actuel']);
+      this.router.navigate(['home', this.id, 'chauffage-actuel']);
     }
 
   }
