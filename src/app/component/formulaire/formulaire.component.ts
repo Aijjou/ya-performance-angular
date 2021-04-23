@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { FormulaireService } from 'src/app/service/formulaire.service';
 import { HeaderService } from 'src/app/service/header.service';
+import { isJsxSelfClosingElement } from 'typescript';
 
 @Component({
   selector: 'app-formulaire',
@@ -29,6 +30,12 @@ export class FormulaireComponent implements OnInit {
   ngOnInit(): void {
     this.titre = " Prise de contact";
     this.headerService.changementTitre(this.titre);
+
+    if(this.id==null||0){
+      this.router.navigate(['/']);
+    }
+
+
     this.prospectForm = this.fomrBuild.group({
       civilite: ['', Validators.required],
       nom: ['', Validators.required],

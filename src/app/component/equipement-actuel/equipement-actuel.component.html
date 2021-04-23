@@ -76,7 +76,7 @@
                             </div>
                             <div class="card-image p-2" *ngIf="energie=='bois'"><img src="/assets/images/chaudiere-granule-bois.PNG"></div>
                             <div class="card-body p-0"><label for=""
-                                    class="text-center typeChaudiere" [ngStyle]="{'font-size':energie=='pompe'?'11px':'14px'}">{{typeChauffage4}}
+                                    class="text-center typeChaudiere" [ngStyle]="{'font-size':energie=='pompe' || 'bois'?'11px':'14px'}">{{typeChauffage4}}
                                 </label></div>
                         </div>
                     </label>

@@ -33,7 +33,7 @@ export class SituationFiscaleComponent implements OnInit {
     var prospect2 = localStorage.getItem("prospect");
     this.prospect = JSON.parse(prospect2);
 
-    if (this.simulation == null || this.prospect == null || (this.id == null || 0)) {
+    if (this.prospect.personneCharge == null || this.prospect.situationFamilliale == null || this.simulation == null || (this.id == null || 0)) {
       this.router.navigate(['/']);
     }
 

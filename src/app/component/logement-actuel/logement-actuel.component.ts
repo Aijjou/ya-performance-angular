@@ -30,6 +30,11 @@ export class LogementActuelComponent implements OnInit {
     this.prospect2 = JSON.parse(prospect);
     console.log(this.prospect2);
 
+    if(this.prospect2 == null){
+      this.router.navigate(['/']);
+
+    }
+
     this.logementActuelForm = this.fb.group({
 
       habitation: ['', Validators.required],
