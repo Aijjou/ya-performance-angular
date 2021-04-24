@@ -1,3 +1,4 @@
+
 <div class="main">
     <div class="col-2 stepper align-self-center">
        <app-stepper></app-stepper>
@@ -17,18 +18,15 @@
                     </small> -->
                         </div>
                         <h3 class="align-self-center mt-4"><b>Montant estimatif de la pose (TTC)</b></h3>
-                        <!-- <div class="form-floating mb-3 align-self-center w-50 ">
-                    <input type="number" class="form-control w-100 text-dark" id="floatingInput2"   [value]="montantPose" formControlName="pose">
-                    <label for="floatingInput2" class="text-dark">euros</label>
-                     <small *ngIf="pose.invalid && (pose.touched || pose.dirty)" class=" text-dangerp-0">ce champ est requis
-                    </small> -->
-                        <!-- </div> -->
                         <div class="form-floating mb-3 align-self-center w-50">
                             <input type="number" class="form-control w-100 text-dark" id="floatingInput"
                                 [(ngModel)]="montantPose" placeholder="200" formControlName="pose">
                             <label for="floatingInput" class="text-dark">euros</label>
+                           <small *ngIf="pose.invalid && (pose.touched || pose.dirty)" class=" text-dangerp-0">ce champ est requis
+                    </small> -->
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
