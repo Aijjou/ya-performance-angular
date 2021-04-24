@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-logement-actuel',
@@ -16,9 +17,12 @@ export class LogementActuelComponent implements OnInit {
   private id: number;
   simulation: Simulation;
   prospect2: Prospect;
+  logementIsCompleted : string = "logementIsCompleted";
+  isLogement : string = "isLogement";
 
-
-  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private headerService: HeaderService, private router: Router, 
+    private route: ActivatedRoute, private fb: FormBuilder, 
+    private stepperService: StepperService) {
 
     this.id = this.route.snapshot.params.id;
   }
@@ -26,6 +30,7 @@ export class LogementActuelComponent implements OnInit {
   ngOnInit(): void {
     this.titre = "Mon logement actuel"
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.logementIsCompleted, this.isLogement, this.id);
     var prospect = localStorage.getItem("prospect");
     this.prospect2 = JSON.parse(prospect);
     console.log(this.prospect2);

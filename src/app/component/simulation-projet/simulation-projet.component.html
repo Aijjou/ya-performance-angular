@@ -1,103 +1,124 @@
-<div class="container-fluid d-flex flex-column justify-content-center align-items-center mb-2 mt-0" id="htmlData">
-    <div class="card w-25 d-flex flex-column justify-content-center align-items-center p-1 mb-1 mt-0">
-
-        <div class="card-header w-100 text-center pb-0">
-            <h1>Ma chaudiere à bûches</h1>
-        </div>
-        <div class="card-body p-0 w-100">
-            <div class="d-flex flex-row justify-content-between p-2"><label for="" class="p-2">Montant estimé des
-                    travaux</label>
-                <div class="p-2">12 500 &euro;</div>
-            </div>
-            <span class="badge d-flex flex-row justify-content-between p-2 m-1 aideTotal">
-                <div class="montant p-2"><i class="fas fa-euro-sign p-2"></i> Montant total des aides</div><span
-                    class="valeur p-2 align-self-center">9375 &euro;</span>
-            </span>
-            <div class="d-flex flex-row justify-content-between p-1"><label for="" class="p-1"><i>Prime
-                        énergie</i></label>
-                <div class="p-1"><i>jusqu'à 5500 &euro;</i></div>
-            </div>
-            <div class="d-flex flex-row justify-content-between p-1"><label for=""
-                    class="p-1"><i>MaPrimeRenov</i></label>
-                <div class="p-1"><i>jusqu'à 3875 &euro;</i></div>
-            </div>
-            <span class="badge badge-info d-flex flex-row justify-content-between resteACharge p-2 m-1">
-                <div class="montant p-2"><i class="fas fa-euro-sign p-1"></i> Reste à charge<sup
-                        class="indice1">(1)</sup></div><span class="valeur p-2 align-self-center"> <i
-                        class="fas fa-wallet"></i> &nbsp; 3125 &euro;</span>
-            </span>
-        </div>
+<div class="main">
+    <div class="col-2 stepper align-self-center">
+        <app-stepper></app-stepper>
     </div>
-    <div class="card w-25 d-flex flex-column justify-content-center align-items-center p-2">
-        <div class="d-flex flex-row justify-content-center p-2 w-100 message">
-            <div class="messageTaux ml-2">Financez votre reste à charge avec notre prêt à taux Zéro
-                <span><sup>(2)</sup></span>
+    <div class="col-10 w-75">
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center mb-2 mt-0"
+            id="htmlData">
+            <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-1 mb-1 mt-0">
+
+                <div class="card-header w-100 text-center pb-0">
+                    <h1>Ma chaudiere à bûches</h1>
+                </div>
+                <div class="card-body p-0 w-100">
+                    <div class="d-flex flex-row justify-content-between p-2"><label for="" class="p-2">Montant estimé
+                            des
+                            travaux</label>
+                        <div class="p-2">12 500 &euro;</div>
+                    </div>
+                    <span class="badge d-flex flex-row justify-content-between p-2 m-1 aideTotal">
+                        <div class="montant p-2"><i class="fas fa-euro-sign p-2"></i> Montant total des aides</div><span
+                            class="valeur p-2 align-self-center">9375 &euro;</span>
+                    </span>
+                    <div class="d-flex flex-row justify-content-between p-1"><label for="" class="p-1"><i>Prime
+                                énergie</i></label>
+                        <div class="p-1"><i>jusqu'à 5500 &euro;</i></div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between p-1"><label for=""
+                            class="p-1"><i>MaPrimeRenov</i></label>
+                        <div class="p-1"><i>jusqu'à 3875 &euro;</i></div>
+                    </div>
+                    <span class="badge badge-info d-flex flex-row justify-content-between resteACharge p-2 m-1">
+                        <div class="montant p-2"><i class="fas fa-euro-sign p-1"></i> Reste à charge<sup
+                                class="indice1">(1)</sup></div><span class="valeur p-2 align-self-center"> <i
+                                class="fas fa-wallet"></i> &nbsp; 3125 &euro;</span>
+                    </span>
+                </div>
+            </div>
+            <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-2">
+                <div class="d-flex flex-row justify-content-center p-2 w-100 message">
+                    <div class="messageTaux ml-2">Financez votre reste à charge avec notre prêt à taux Zéro
+                        <span><sup>(2)</sup></span>
+                    </div>
+                </div>
+                <span class="badge d-flex flex-row justify-content-center p-2 w-100 parMois">
+                    <div class="p-1 valeur-mensualite"> 52 &euro; /Mois</div><span
+                        class="p-1 align-self-center periode">pendant
+                        60 mois</span>
+                </span>
+            </div>
+            <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-1 mt-1 mb-1">
+                <div class="d-flex flex-row justify-content-start p-2 w-100"><i class="fas fa-info-circle p-2"></i>
+                    <div class="align-self-center">Conprendre mes aides</div>
+                </div>
+                <button class="btn btn-outline-light mb-2 mr-2 w-100"
+                    (click)="openScrollableContent(longContent)">MaPrimeRenov</button>
+                <button class="btn btn-outline-light mb-2 mr-2 w-100"
+                    (click)="openScrollableContent(longContent1)">Prime
+                    Energie</button>
+            </div>
+            <p class="text-dark w-50 mb-2 p-0 text-legal-1">(1) Montant finançable net fourni à titre estimatif après
+                déduction
+                du montant prévisionnel de "Ma Prime Rénove"
+                ou du montant prévisionnel du CITE. La responsabilité Ya-Perfomance ne saurait être recherchée si le
+                montant
+                effectif du reste à charge etait différent de celui affiché dans le cadre de cette simulation, notamment
+                en cas
+                de non-versement de l'aide par l'organisme d'Etat habilité ou en cas de non déduction du CITE par les
+                services
+                fiscaux après instruction du dossier par leurs soins. Les aides Anah sont accordées sous conditions de
+                ressources.</p>
+            <ng-template #longContent let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">Information MaPrimeRenov</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>MaPrimeRénov' : la nouvelle prime pour la rénovation énergétique.</h1>
+                    <p>MaPrimeRénov' est, depuis janvier 2020, la principale aide de l'Etat destinée aux travaux de
+                        rénovation
+                        énergétique. Elle est cumulable avec la Prime Energie Total. Cette mesure remplace le Crédit
+                        d'Impôt
+                        pour la Transition Énergétique et les aides Anah « Habiter Mieux Agilité ». Le montant de l’aide
+                        est
+                        calculé en fonction de vos revenus et du gain écologique des travaux. Cliquez ici pour en savoir
+                        plus.
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
+            <ng-template #longContent1 let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title">Information Prime Energie</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h1>Prime Energie'</h1>
+                    <p>La prime énergie est l’application par Total Marketing France du dispositif réglementaire des
+                        Certificats
+                        d’Économies d’Énergie (CEE). Soumise à conditions, elle est versée en euros après la réalisation
+                        des
+                        travaux et la validation du dossier.
+                    </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+                </div>
+            </ng-template>
+        </div>
+        <div class="d-flex flex-row justify-content-around w-100">
+            <div class="button-group d-flex flex-row justify-content-around mt-4 w-50 align-self-center">
+                <a (click)="openPDF()" class="btn w-25 retour">Imprimer</a>
+                <a routerLink="/home" class="btn w-25 suivant">Envoi</a>
             </div>
         </div>
-        <span class="badge d-flex flex-row justify-content-center p-2 w-100 parMois">
-            <div class="p-1 valeur-mensualite"> 52 &euro; /Mois</div><span class="p-1 align-self-center periode">pendant
-                60 mois</span>
-        </span>
-    </div>
-    <div class="card w-25 d-flex flex-column justify-content-center align-items-center p-1 mt-1 mb-1">
-        <div class="d-flex flex-row justify-content-start p-2 w-100"><i class="fas fa-info-circle p-2"></i>
-            <div class="align-self-center">Conprendre mes aides</div>
-        </div>
-        <button class="btn btn-outline-light mb-2 mr-2 w-100"
-            (click)="openScrollableContent(longContent)">MaPrimeRenov</button>
-        <button class="btn btn-outline-light mb-2 mr-2 w-100" (click)="openScrollableContent(longContent1)">Prime
-            Energie</button>
-    </div>
-    <p class="text-dark w-25 mb-2 p-0 text-legal-1">(1) Montant finançable net fourni à titre estimatif après déduction
-        du montant prévisionnel de "Ma Prime Rénove"
-        ou du montant prévisionnel du CITE. La responsabilité Ya-Perfomance ne saurait être recherchée si le montant
-        effectif du reste à charge etait différent de celui affiché dans le cadre de cette simulation, notamment en cas
-        de non-versement de l'aide par l'organisme d'Etat habilité ou en cas de non déduction du CITE par les services
-        fiscaux après instruction du dossier par leurs soins. Les aides Anah sont accordées sous conditions de
-        ressources.</p>
-    <ng-template #longContent let-modal>
-        <div class="modal-header">
-            <h4 class="modal-title">Information MaPrimeRenov</h4>
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <h1>MaPrimeRénov' : la nouvelle prime pour la rénovation énergétique.</h1>
-            <p>MaPrimeRénov' est, depuis janvier 2020, la principale aide de l'Etat destinée aux travaux de rénovation
-                énergétique. Elle est cumulable avec la Prime Energie Total. Cette mesure remplace le Crédit d'Impôt
-                pour la Transition Énergétique et les aides Anah « Habiter Mieux Agilité ». Le montant de l’aide est
-                calculé en fonction de vos revenus et du gain écologique des travaux. Cliquez ici pour en savoir plus.
-            </p>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-        </div>
-    </ng-template>
-    <ng-template #longContent1 let-modal>
-        <div class="modal-header">
-            <h4 class="modal-title">Information Prime Energie</h4>
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <h1>Prime Energie'</h1>
-            <p>La prime énergie est l’application par Total Marketing France du dispositif réglementaire des Certificats
-                d’Économies d’Énergie (CEE). Soumise à conditions, elle est versée en euros après la réalisation des
-                travaux et la validation du dossier.
-            </p>
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-        </div>
-    </ng-template>
-</div>
-<div class="d-flex flex-row justify-content-around w-100">
-    <div class="button-group d-flex flex-row justify-content-around mt-4 w-50 align-self-center">
-        <a (click)="openPDF()" class="btn w-25 retour">Imprimer</a>
-        <a routerLink="/home" class="btn w-25 suivant">Envoi</a>
     </div>
 </div>

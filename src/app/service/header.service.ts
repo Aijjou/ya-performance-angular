@@ -5,20 +5,20 @@ import { EventEmitter, Inject, Injectable, Output } from '@angular/core';
   providedIn: 'root'
 })
 export class HeaderService {
-  titre : string = " ";
-
-@Output()
-change = new EventEmitter();
+  
+  titre: string = " ";
+  @Output()
+  change = new EventEmitter();
 
   constructor() {
-    
-   }
 
-changementTitre(nextTitre : string){
+  }
 
-  this.titre = nextTitre;
-  this.change.emit(this.titre);
-}
+  changementTitre(nextTitre: string) {
+
+    this.titre = nextTitre;
+    this.change.emit(this.titre);
+  }
 
 
 }

@@ -1,50 +1,64 @@
-<form class="container-fluid d-flex flex-column  align-items-center" [formGroup]="logementActuelForm" (ngSubmit)="onSubmit()">
-    <div class="w-100 d-flex flex-column justify-content-around main">
-        <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
-            aria-label="Basic outlined example" id="habitation">
-            <h3 class="align-self-center"><b>Votre logement est </b></h3>
-            <div class="d-flex flex-row justify-content-center w-50 align-self-center">
-                <input type="radio" class="btn-check" name="habitation" id="btnradio1" autocomplete="off" value="maison" checked formControlName="habitation">
-                <label class="btn btn-outline-success w-25 p-1 maison-button bg-light" for="btnradio1">
-                    <div class="card p-1 m-1">
-                        <div class="card-image p-2"><img src="/assets/images/home.png"></div>
-                        <div class="card-body p-0"><label for="" class="text-center text-white">Une Maison</label></div>
-                    </div>
-                </label>
-                <input type="radio" class="btn-check" name="habitation" id="btnradio2" autocomplete="off"  value="appartement" formControlName="habitation">
-                <label class="btn btn-outline-success w-25 p-1 appt-button bg-light" for="btnradio2">
-                    <div class="card p-1 m-1">
-                        <div class="card-image p-2"><img src="/assets/images/building.png"></div>
-                        <div class="card-body p-0"><label for="" class="text-center text-white">Un Appartement</label></div>
-                    </div>
-                </label>
-            </div>
-        </div>
-        <div class="annee-construction d-flex flex-column justify-content-center w-100 align-self-center mt-0">
-            <h3 class="align-self-center"><b>Année de construction</b> </h3>
-            <div class="d-flex flex-row justify-content-center align-self-center w-75" role="group"
-                aria-label="Basic radio toggle button group" id="annee">
-                <div class="w-25 d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="annee" id="btnradio3" autocomplete="off" value="2anset15ans" checked formControlName="annee">
-                    <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio3">Entre 2 ans et 15
-                        ans</label>
-                </div>
-                <div class="w-25 d-flex flex-row justify-content-center">
-                    <input type="radio" class="btn-check" name="annee" id="btnradio4"  autocomplete="off" value="plus15ans" formControlName="annee">
-                    <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio4">+ de 15 ans</label>
-                </div>
-            </div>
-        </div>
-        <div class="surface d-flex flex-column justify-content-center w-50 align-self-center mt-0">
-            <h3 class="align-self-center"><b>Surface habitable chauffée</b></h3>
-            <div class="form-floating mb-3 align-self-center w-50">
-                <input type="number" class="form-control w-100" id="floatingInput" placeholder="200" formControlName="surface">
-                <label for="floatingInput" class="text-dark">m2</label>
-            </div>
-        </div>
+<div class="main">
+    <div class="col-2 stepper align-self-center">
+        <app-stepper></app-stepper>
     </div>
-    <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
-        <button (click)="retour()" class="btn w-25 retour">Retour</button>
-        <button type ="submit" class="btn w-25 suivant" [disabled]="!logementActuelForm.valid">Suivant</button>
+    <div class="col-10 w-75">
+        <form class="container-fluid d-flex flex-column align-items-center" [formGroup]="logementActuelForm"
+            (ngSubmit)="onSubmit()">
+            <div class="w-100 d-flex flex-column justify-content-around main1">
+                <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
+                    aria-label="Basic outlined example" id="habitation">
+                    <h3 class="align-self-center"><b>Votre logement est </b></h3>
+                    <div class="d-flex flex-row justify-content-center w-50 align-self-center">
+                        <input type="radio" class="btn-check m-1" name="habitation" id="btnradio1" autocomplete="off"
+                            value="maison" checked formControlName="habitation">
+                        <label class="btn btn-outline-success w-25 p-1 maison-button mx-2" for="btnradio1">
+                            <div class="card-image p-2"> <img src="/assets/images/home.png"></div>
+                            <div class="card-body p-0"> <label for="" class="text-center">Une
+                                    Maison</label></div>
+                        </label>
+                        <input type="radio" class="btn-check" name="habitation" id="btnradio2" autocomplete="off"
+                            value="appartement" formControlName="habitation">
+                        <label class="btn btn-outline-success w-25 p-1 appt-button mx-2" for="btnradio2">
+                                <div class="card-image p-2"><img src="/assets/images/building.png"></div>
+                                <div class="card-body p-0"><label for="" class="text-center">Un
+                                        Appartement</label></div>        
+                        </label>
+                    </div>
+                </div>
+                <div class="annee-construction d-flex flex-column justify-content-center w-100 align-self-center mt-0">
+                    <h3 class="align-self-center"><b>Année de construction</b> </h3>
+                    <div class="d-flex flex-row justify-content-center align-self-center w-75" role="group"
+                        aria-label="Basic radio toggle button group" id="annee">
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="annee" id="btnradio3" autocomplete="off"
+                                value="2anset15ans" checked formControlName="annee">
+                            <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio3">Entre 2 ans et
+                                15
+                                ans</label>
+                        </div>
+                        <div class="w-25 d-flex flex-row justify-content-center">
+                            <input type="radio" class="btn-check" name="annee" id="btnradio4" autocomplete="off"
+                                value="plus15ans" formControlName="annee">
+                            <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio4">+ de 15
+                                ans</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="surface d-flex flex-column justify-content-center w-50 align-self-center mt-0">
+                    <h3 class="align-self-center"><b>Surface habitable chauffée</b></h3>
+                    <div class="form-floating mb-3 align-self-center w-50">
+                        <input type="number" class="form-control w-100" id="floatingInput" placeholder="200"
+                            formControlName="surface">
+                        <label for="floatingInput" class="text-dark">m2</label>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group w-50 d-flex flex-row justify-content-around mt-4">
+                <button (click)="retour()" class="btn w-25 retour">Retour</button>
+                <button type="submit" class="btn w-25 suivant" [disabled]="!logementActuelForm.valid">Suivant</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>

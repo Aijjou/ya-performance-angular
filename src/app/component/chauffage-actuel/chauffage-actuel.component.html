@@ -1,91 +1,107 @@
-<form class=" form container-fluid d-flex flex-column  align-items-center" [formGroup]="chauffageActuelForm" (ngSubmit)="onSubmit()">
-    <div class="w-100 d-flex flex-column justify-content-center main">
-        <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
-            <h3 class="align-self-center"><b>Votre energie de chauffage actuelle</b> </h3>
-            <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
-                aria-label="Basic radio toggle button group" id="energie">
-                <div class="d-flex flex-row justify-content-center m-2">
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio5" autocomplete="off"
-                            value="electricite" checked  (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio5"><img
-                                src="/assets/images/flash.png" class="electriciteImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10 p-0 m-0">Electricité</div>
-                        </label>
-                    </div>
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio6" autocomplete="off"
-                            value="gaz" (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio6"> <img
-                                src="/assets/images/flame.png" alt="" class="flammeImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">Gaz naturel</div>
-                        </label>
-                    </div>
-                </div>
-                <div class="d-flex flex-row justify-content-center m-2">
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio7" autocomplete="off"
-                            value="fioul" (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio7"><img
-                                src="/assets/images/fuel.png" alt="" class="fuelImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">Fioul</div>
-                        </label>
-                    </div>
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio8" autocomplete="off"
-                            value="pompe" (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio8"><img
-                                src="/assets/images/heat.png" alt="" class="pompeImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">Pompe à chaleur</div>
-                        </label>
-                    </div>
-                </div>
-                <div class="d-flex flex-row justify-content-center m-2">
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio9" autocomplete="off"
-                            value="bois" (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio9"><img
-                                src="/assets/images/log.png" alt="" class="fuelImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">Bois</div>
-                        </label>
-                    </div>
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio10" autocomplete="off"
-                            value="gpl" (change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio10"><img
-                                src="/assets/images/gpl.png" alt="" class="pompeImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">GPL</div>
-                        </label>
-                    </div>
-                </div>
-                <div class="d-flex flex-row justify-content-center m-2">
-                    <div class="w-25 d-flex flex-row justify-content-center">
-                        <input type="radio" class="btn-check" name="energie" id="btnradio11" autocomplete="off"
-                            value="charbon"(change)="handleChange($event)" formControlName="energie">
-                        <label class="btn btn-outline-success w-50 annee-button d-flex flex-row" for="btnradio11"><img
-                                src="/assets/images/charbon.png" alt="" class="fuelImg col-2 p-0 m-0 align-self-center">
-                            <div class="col-10">Charbon</div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row w-25 align-self-center mt-4">
-            <div class="m-0">
-                <hr class="solid">
-            </div>
-        </div>
-        <div class="type-energie d-flex flex-column justify-content-center w-50 align-self-center mt-4">
-            <h3 class="align-self-center"><b>Votre consommation annuelle</b> </h3>
-            <div class="form-floating mb-3  align-self-center w-50 mb-4">
-                <input type="number" class="form-control w-100 text-dark align-self-center" id="floatingInput"
-                    placeholder="2000"  [value]="conso"  formControlName="conso">
-                <label for="floatingInput" class="text-dark">{{unite}}</label>
-            </div>
-        </div>
+<div class="main">
+    <div class="col-2 stepper align-self-center">
+       <app-stepper></app-stepper>
     </div>
-    <div class="button-group w-50 d-flex flex-row justify-content-around mt-2">
-        <button (click)="return()" class="btn w-25 retour">Retour</button>
-        <button type="submit" class="btn w-25 suivant" [disabled]="!chauffageActuelForm.valid">Suivant</button>
+   <div class="col-10 w-75">
+        <form class=" form container-fluid d-flex flex-column  align-items-center" [formGroup]="chauffageActuelForm"
+            (ngSubmit)="onSubmit()">
+            <div class="w-100 d-flex flex-column justify-content-center main">
+                <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
+                    <h3 class="align-self-center"><b>Votre energie de chauffage actuelle</b> </h3>
+                    <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
+                        aria-label="Basic radio toggle button group" id="energie">
+                        <div class="d-flex flex-row justify-content-center m-2">
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio5" autocomplete="off"
+                                    value="electricite" checked (change)="handleChange($event)"
+                                    formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio5"><img src="/assets/images/flash.png"
+                                        class="electriciteImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10 p-0 m-0">Electricité</div>
+                                </label>
+                            </div>
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio6" autocomplete="off"
+                                    value="gaz" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio6"> <img src="/assets/images/flame.png" alt=""
+                                        class="flammeImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">Gaz naturel</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center m-2">
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio7" autocomplete="off"
+                                    value="fioul" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio7"><img src="/assets/images/fuel.png" alt=""
+                                        class="fuelImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">Fioul</div>
+                                </label>
+                            </div>
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio8" autocomplete="off"
+                                    value="pompe" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio8"><img src="/assets/images/heat.png" alt=""
+                                        class="pompeImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">Pompe à chaleur</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center m-2">
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio9" autocomplete="off"
+                                    value="bois" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio9"><img src="/assets/images/log.png" alt=""
+                                        class="fuelImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">Bois</div>
+                                </label>
+                            </div>
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio10" autocomplete="off"
+                                    value="gpl" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio10"><img src="/assets/images/gpl.png" alt=""
+                                        class="pompeImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">GPL</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center m-2">
+                            <div class="w-25 d-flex flex-row justify-content-center">
+                                <input type="radio" class="btn-check" name="energie" id="btnradio11" autocomplete="off"
+                                    value="charbon" (change)="handleChange($event)" formControlName="energie">
+                                <label class="btn btn-outline-success w-50 annee-button d-flex flex-row"
+                                    for="btnradio11"><img src="/assets/images/charbon.png" alt=""
+                                        class="fuelImg col-2 p-0 m-0 align-self-center">
+                                    <div class="col-10">Charbon</div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-25 align-self-center mt-4">
+                    <div class="m-0">
+                        <hr class="solid">
+                    </div>
+                </div>
+                <div class="type-energie d-flex flex-column justify-content-center w-50 align-self-center mt-4">
+                    <h3 class="align-self-center"><b>Votre consommation annuelle</b> </h3>
+                    <div class="form-floating mb-3  align-self-center w-50 mb-4">
+                        <input type="number" class="form-control w-100 text-dark align-self-center" id="floatingInput"
+                            placeholder="2000" [value]="conso" formControlName="conso">
+                        <label for="floatingInput" class="text-dark">{{unite}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="button-group w-50 d-flex flex-row justify-content-around mt-2">
+                <button (click)="return()" class="btn w-25 retour">Retour</button>
+                <button type="submit" class="btn w-25 suivant" [disabled]="!chauffageActuelForm.valid">Suivant</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>

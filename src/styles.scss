@@ -33,6 +33,41 @@ $ya-performance-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($ya-performance-theme);
 
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ya-performance-primary: mat-palette($mat-indigo);
+$ya-performance-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$ya-performance-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ya-performance-theme: mat-light-theme((
+  color: (
+    primary: $ya-performance-primary,
+    accent: $ya-performance-accent,
+    warn: $ya-performance-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($ya-performance-theme);
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
@@ -58,8 +93,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .retour, .suivant {
   background-color: #ADCF43;
   color: #5f5f5f;
-  font-weight: 800;
- 
+  font-weight: 800; 
 }
 
 .retour:hover, .suivant:hover{
@@ -67,5 +101,66 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	transform: translateY(-2px);
 }
 
+.main{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height : 75vh;
+  width: 100%;
+  margin: 0px;
+  padding:0px;
+}
+
+.appt-button, .maison-button{
+  width: 120px;
+  border-color: 3px solid;
+}
+
+.main1{
+  height : 75vh;
+
+}
+.container-fluid, .stepper {
+  height: 87vh;
+  color: white;
+  margin:0px;
+}
 
 /*  background-color:#ABB2B9;*/
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, 
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: #ADCF43;
+  color: #5f5f5f;
+}
+img:hover {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+      transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+      transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+      transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+      transform: translate3d(4px, 0, 0);
+  }
+}
