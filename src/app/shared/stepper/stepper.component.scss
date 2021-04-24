@@ -1,0 +1,33 @@
+.mat-stepper-vertical {
+  margin-top: 10px;
+}
+
+.mat-form-field {
+  margin-top: 18px;
+}
+
+mat-vertical-stepper {
+  height: 80vh;
+  margin: 0 auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+
+mat-stepper{
+background-color: brown;
+margin: 0px;
+
+}
+
+.titre {
+  font-size: 30px;
+  color: red;
+}
+
+ .mat-step-icon-selected,  .mat-step-icon-state-done, .mat-step-icon-state-edit {
+  background-color: #ADCF43;
+  color: #5f5f5f;
+}
+

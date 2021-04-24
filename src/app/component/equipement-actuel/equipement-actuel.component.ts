@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-equipement-actuel',
@@ -23,6 +24,8 @@ export class EquipementActuelComponent implements OnInit {
   typeChauffage4: string;
   typeChauffage5: string;
   typeChauffage6: string;
+  logementIsCompleted : string = "logementIsCompleted";
+  isEquipement : string = "isEquipement";
 
 
 
@@ -30,7 +33,9 @@ export class EquipementActuelComponent implements OnInit {
   @Input() value: string;
   @Output() valueChosen: EventEmitter<any> = new EventEmitter();
 
-  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private headerService: HeaderService, 
+    private router: Router, private route: ActivatedRoute, 
+    private fb: FormBuilder, private stepperService : StepperService) {
 
     this.id = this.route.snapshot.params.id;
 
@@ -40,11 +45,12 @@ export class EquipementActuelComponent implements OnInit {
 
     this.titre = "Equipement actuel";
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.logementIsCompleted, this.isEquipement, this.id);
     var prospect2 = localStorage.getItem("prospect");
     this.prospect = JSON.parse(prospect2);
     var simulation2 = localStorage.getItem("simulation")
     this.simulation = JSON.parse(simulation2);
-
+   
     if (this.simulation.conso == null || this.simulation.energie == null || this.prospect == null) {
       this.router.navigate(['/']);
     }

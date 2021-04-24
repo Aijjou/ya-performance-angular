@@ -1,72 +1,86 @@
-<form class="container-fluid d-flex flex-column  align-items-center" [formGroup]="destinationTravauxForm" (ngSubmit)="onSubmit()">
-    <div class="w-100 d-flex flex-column justify-content-around main">
-        <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
-            <div class="situation d-flex flex-column justify-content-center mb-2">
-                <h3 class="align-self-center"><b>Le bénéficiaire des travaux</b> </h3>
-                <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
-                    aria-label="Basic radio toggle button group" id="beneficiaire">
-                    <div class="d-flex flex-row justify-content-center m-2">
-                        <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="beneficiaire" value="locataire" id="btnradio1" autocomplete="off"
-                                checked formControlName="beneficiaire">
-                            <label class="btn btn-outline-success w-75 annee-button align-self-center" for="btnradio1">
-                                Locataire
-                            </label>
-                        </div>
-                        <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="beneficiaire" id="btnradio2" value="proprioOccupant" autocomplete="off" formControlName="beneficiaire">
-                            <label class="btn btn-outline-success w-75 annee-button  align-self-center" for="btnradio2">
-                                Propriétaire occupant
-                            </label>
+<div class="main">
+    <div class="col-2 stepper align-self-center">
+       <app-stepper></app-stepper>
+    </div>
+   <div class="col-10 w-75">
+        <form class="container-fluid d-flex flex-column  align-items-center" [formGroup]="destinationTravauxForm"
+            (ngSubmit)="onSubmit()">
+            <div class="w-100 d-flex flex-column justify-content-around main">
+                <div class="type-energie d-flex flex-column justify-content-center w-100 align-self-center mt-0">
+                    <div class="situation d-flex flex-column justify-content-center mb-2">
+                        <h3 class="align-self-center"><b>Le bénéficiaire des travaux</b> </h3>
+                        <div class="d-flex flex-column justify-content-center align-self-center w-100" role="group"
+                            aria-label="Basic radio toggle button group" id="beneficiaire">
+                            <div class="d-flex flex-row justify-content-center m-2">
+                                <div class="w-25 d-flex flex-row justify-content-center">
+                                    <input type="radio" class="btn-check" name="beneficiaire" value="locataire"
+                                        id="btnradio1" autocomplete="off" checked formControlName="beneficiaire">
+                                    <label class="btn btn-outline-success w-75 annee-button align-self-center"
+                                        for="btnradio1">
+                                        Locataire
+                                    </label>
+                                </div>
+                                <div class="w-25 d-flex flex-row justify-content-center">
+                                    <input type="radio" class="btn-check" name="beneficiaire" id="btnradio2"
+                                        value="proprioOccupant" autocomplete="off" formControlName="beneficiaire">
+                                    <label class="btn btn-outline-success w-75 annee-button  align-self-center"
+                                        for="btnradio2">
+                                        Propriétaire occupant
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-center m-2">
+                                <div class="w-25 d-flex flex-row justify-content-center">
+                                    <input type="radio" class="btn-check" name="beneficiaire" id="btnradio3"
+                                        value="ProprioResidenceSecondaire" autocomplete="off" checked
+                                        formControlName="beneficiaire">
+                                    <label class="btn btn-outline-success w-75 annee-button align-self-center"
+                                        for="btnradio3" style="font-size: 15px;">Propriétaire résidence secondaire</label>
+                                </div>
+                                <div class="w-25 d-flex flex-row justify-content-center">
+                                    <input type="radio" class="btn-check" name="beneficiaire" id="btnradio4"
+                                        autocomplete="off" value="proprioBailleur" formControlName="beneficiaire">
+                                    <label class="btn btn-outline-success w-75 annee-button align-self-center"
+                                        for="btnradio4">Propriétaire bailleur</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex flex-row justify-content-center m-2">
-                        <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="beneficiaire" id="btnradio3" value="ProprioResidenceSecondaire" autocomplete="off"
-                                checked formControlName="beneficiaire">
-                            <label class="btn btn-outline-success w-75 annee-button align-self-center"
-                                for="btnradio3">Propriétaire résidence secondaire</label>
+                    <div class="row w-25 align-self-center">
+                        <div class="mb-0">
+                            <hr class="solid">
                         </div>
-                        <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="beneficiaire" id="btnradio4" autocomplete="off" value="proprioBailleur" formControlName="beneficiaire">
-                            <label class="btn btn-outline-success w-75 annee-button align-self-center"
-                                for="btnradio4">Propriétaire bailleur</label>
+                    </div>
+                    <div class="charge d-flex flex-column justify-content-center mt-4" [formGroup]="adresseTravauxForm">
+                        <h3 class="align-self-center"><b>Adresse des travaux</b> </h3>
+                        <div class="form-floating mb-3  align-self-center w-25 mb-4">
+                            <input type="text" class="form-control w-100 text-dark align-self-center" name="numero"
+                                id="floatingInput" formControlName="numero">
+                            <label for="floatingInput" class="text-dark">Numéro</label>
+                        </div>
+                        <div class="form-floating mb-3  align-self-center w-25 mb-4">
+                            <input type="text" class="form-control w-100 text-dark align-self-center" name="voie"
+                                id="floatingInput" formControlName="voie">
+                            <label for="floatingInput" class="text-dark">Voie</label>
+                        </div>
+                        <div class="form-floating mb-3  align-self-center w-25 mb-4">
+                            <input type="text" class="form-control w-100 text-dark align-self-center" name="ville"
+                                id="floatingInput" formControlName="ville">
+                            <label for="floatingInput" class="text-dark">Ville</label>
+                        </div>
+                        <div class="form-floating mb-3  align-self-center w-25 mb-4">
+                            <input type="text" class="form-control w-100 text-dark align-self-center" name="code"
+                                id="floatingInput" formControlName="code">
+                            <label for="floatingInput" class="text-dark">Code postal</label>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row w-25 align-self-center">
-                <div class="mb-0">
-                    <hr class="solid">
-                </div>
+            <div class="button-group w-50 d-flex flex-row justify-content-around mt-2">
+                <button (click)="return()" class="btn w-25 retour">Retour</button>
+                <button type="submit" [disabled]="!destinationTravauxForm.valid" [disabled]="!adresseTravauxForm.valid"
+                    class="btn w-25 suivant">Suivant</button>
             </div>
-            <div class="charge d-flex flex-column justify-content-center mt-4" [formGroup]="adresseTravauxForm">
-                <h3 class="align-self-center"><b>Adresse des travaux</b> </h3>
-                <div class="form-floating mb-3  align-self-center w-25 mb-4">
-                    <input type="text" class="form-control w-100 text-dark align-self-center" name="numero" id="floatingInput" 
-                    formControlName="numero">
-                    <label for="floatingInput" class="text-dark">Numéro</label>
-                </div>
-                <div class="form-floating mb-3  align-self-center w-25 mb-4">
-                    <input type="text" class="form-control w-100 text-dark align-self-center" name="voie"id="floatingInput" formControlName="voie"
-                    >
-                    <label for="floatingInput" class="text-dark">Voie</label>
-                </div>
-                <div class="form-floating mb-3  align-self-center w-25 mb-4">
-                    <input type="text" class="form-control w-100 text-dark align-self-center" name="ville" id="floatingInput"
-                    formControlName="ville">
-                    <label for="floatingInput" class="text-dark">Ville</label>
-                </div>
-                <div class="form-floating mb-3  align-self-center w-25 mb-4">
-                    <input type="text" class="form-control w-100 text-dark align-self-center" name="code" id="floatingInput"
-                    formControlName="code">
-                    <label for="floatingInput" class="text-dark">Code postal</label>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-    <div class="button-group w-50 d-flex flex-row justify-content-around mt-2">
-        <button (click)="return()" class="btn w-25 retour">Retour</button>
-        <button type="submit" [disabled]="!destinationTravauxForm.valid && !adresseTravauxForm.valid"  class="btn w-25 suivant">Suivant</button>
-    </div>
-</form>
+</div>

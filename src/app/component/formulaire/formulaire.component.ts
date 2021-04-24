@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { FormulaireService } from 'src/app/service/formulaire.service';
 import { HeaderService } from 'src/app/service/header.service';
+import { StepperService } from 'src/app/service/stepper.service';
 import { isJsxSelfClosingElement } from 'typescript';
 
 @Component({
@@ -19,10 +20,16 @@ export class FormulaireComponent implements OnInit {
   prospect: Prospect;
   submitted: boolean;
   infos: any;
+  coordonneeIsCompleted: string = "coordonneeIsCompleted";
+  isCoordonnee : string ="isCoordonnee";
 
 
 
-  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fomrBuild: FormBuilder, private serviceForm: FormulaireService) {
+
+
+  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute,
+    private fomrBuild: FormBuilder, private serviceForm: FormulaireService,
+    private stepperService: StepperService) {
     this.id = this.route.snapshot.params.id;
 
   }
@@ -30,8 +37,9 @@ export class FormulaireComponent implements OnInit {
   ngOnInit(): void {
     this.titre = " Prise de contact";
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.coordonneeIsCompleted, this.isCoordonnee, this.id);
 
-    if(this.id==null||0){
+    if (this.id == null || 0) {
       this.router.navigate(['/']);
     }
 
@@ -75,9 +83,9 @@ export class FormulaireComponent implements OnInit {
     return this.prospectForm.get('condition');
   }
 
-return(){
-  this.router.navigate(['/']);
-}
+  return() {
+    this.router.navigate(['/']);
+  }
 
   onSubmit() {
     if (this.prospectForm.valid) {

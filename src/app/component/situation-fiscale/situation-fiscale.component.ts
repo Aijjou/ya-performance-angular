@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-situation-fiscale',
@@ -16,8 +17,14 @@ export class SituationFiscaleComponent implements OnInit {
   private id: number;
   prospect: Prospect;
   simulation: Simulation;
+  maSituationActuelleIsCompleted : string = "maSituationActuelleIsCompleted";
+  isFiscale : string = "isFiscale";
 
-  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
+
+
+  constructor(private headerService: HeaderService, 
+    private router: Router, private route: ActivatedRoute, 
+    private fb: FormBuilder, private stepperService : StepperService) {
 
 
     this.id = this.route.snapshot.params.id;
@@ -28,6 +35,7 @@ export class SituationFiscaleComponent implements OnInit {
   ngOnInit(): void {
     this.titre = "Ma situation actuelle"
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.maSituationActuelleIsCompleted, this.isFiscale, this.id);
     var simulation2 = localStorage.getItem("simulation");
     this.simulation = JSON.parse(simulation2);
     var prospect2 = localStorage.getItem("prospect");

@@ -3,6 +3,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderService } from 'src/app/service/header.service';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { StepperService } from 'src/app/service/stepper.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-simulation-projet',
@@ -14,13 +16,21 @@ export class SimulationProjetComponent implements OnInit {
   @ViewChild('htmlData') htmlData: ElementRef;
 
   private titre: string;
+  maSimulationIsCompleted: string = "maSimulationIsCompleted";
+  isSimulation: string = "isSimulation";
+  id: number;
 
 
-  constructor(private headerService: HeaderService, private modalService: NgbModal) { }
+  constructor(private headerService: HeaderService,
+    private modalService: NgbModal, private stepperService: StepperService, private route: ActivatedRoute) {
+    this.id = this.route.snapshot.params.id;
+
+  }
 
   ngOnInit(): void {
     this.titre = "Votre Projet";
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.maSimulationIsCompleted, this.isSimulation, this.id);
   }
 
 

@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
+
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HeaderComponent } from './shared/header/header.component';
@@ -24,11 +24,16 @@ import { SimulationProjetComponent } from './component/simulation-projet/simulat
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './component/home/home.component';
 import { EquipementActuelComponent } from './component/equipement-actuel/equipement-actuel.component';
-import { catchError, retry } from 'rxjs/operators';
 import { SurfaceIsolationComponent } from './component/surface-isolation/surface-isolation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StepperComponent } from './shared/stepper/stepper.component';
+import {MatStepperModule} from '@angular/material/stepper'
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     SimulationProjetComponent,
     EquipementActuelComponent,
     SurfaceIsolationComponent,
+    StepperComponent,
 
   ],
   imports: [
@@ -64,7 +70,13 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatDialogModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    MatInputModule,
+    MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

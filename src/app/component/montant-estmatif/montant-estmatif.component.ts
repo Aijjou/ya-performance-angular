@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prospect } from 'src/app/model/prospect';
 import { Simulation } from 'src/app/model/simulation';
 import { HeaderService } from 'src/app/service/header.service';
+import { StepperService } from 'src/app/service/stepper.service';
 
 @Component({
   selector: 'app-montant-estmatif',
@@ -18,8 +19,12 @@ export class MontantEstmatifComponent implements OnInit {
   private id: number;
   montantPose: number;
   montantMateriel: number;
+  monProjetIsCompleted : string = "monProjetIsCompleted";
+  isMontant : string = "isMontant";
 
-  constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(private headerService: HeaderService, 
+    private router: Router, private route: ActivatedRoute,
+     private fb: FormBuilder, private stepperService : StepperService) {
     this.id = this.route.snapshot.params.id;
   }
 
@@ -27,6 +32,7 @@ export class MontantEstmatifComponent implements OnInit {
   ngOnInit(): void {
     this.titre = "Mon Projet de rénovation"
     this.headerService.changementTitre(this.titre);
+    this.stepperService.selectionneUnStep(this.monProjetIsCompleted, this.isMontant, this.id);
     var simulation2 = localStorage.getItem("simulation");
     this.simulation = JSON.parse(simulation2);
     var prospect2 = localStorage.getItem("prospect");
@@ -146,7 +152,7 @@ export class MontantEstmatifComponent implements OnInit {
         this.simulation.montantEstimeMat = this.montantEstimatifForm.get('materiel').value;
         this.simulation.montantEstimePose = this.montantEstimatifForm.get('pose').value;
         localStorage.setItem("simulation", JSON.stringify(this.simulation));
-         alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
+        //  alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
         this.router.navigate(['home', this.id, 'situation-familliale']);
       }
     } else {
