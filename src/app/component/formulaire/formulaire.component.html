@@ -10,13 +10,13 @@
                     <div class="btn-group d-flex flex-row justify-content-around w-100 civilite mt-4" role="group"
                         aria-label="Basic radio toggle button group">
                         <div class="w-100 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check form-control" name="civilite" value="madame"
+                            <input type="radio" class="btn-check form-control" name="civilite" value="Madame"
                                 id="btnradio1" autocomplete="off" checked formControlName="civilite">
                             <label class="btn btn-outline-success w-50" for="btnradio1">Madame</label>
                         </div>
                         <div class="w-100 d-flex flex-row justify-content-center">
                             <input type="radio" class="btn-check form-control" name="civilite" id="btnradio2"
-                                value="monsieur" autocomplete="off" formControlName="civilite">
+                                value="Monsieur" autocomplete="off" formControlName="civilite">
                             <label class="btn btn-outline-success w-50" for="btnradio2">Monsieur</label>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3 row">
-                            <div class="col-md-6"><label for="inputMail" class="mail">Ville</label>
+                            <div class="col-md-6"><label for="inputMail" class="ville">Ville</label>
                                 <input type="text" class="form-control" id="inputVille" placeholder="Ville"
                                     formControlName="ville">
                                 <div *ngIf="ville.invalid && (ville.touched || ville.dirty)">
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6"><label for="inputPhone" class="mail">Code postal</label>
+                            <div class="col-md-6"><label for="inputPhone" class="ville">Code postal</label>
                                 <input type="tel" id="postal" name="postal" class="form-control"
                                     placeholder="Code postal" formControlName="code">
                                 <div *ngIf="code.invalid && (code.touched || code.dirty)">

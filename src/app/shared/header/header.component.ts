@@ -8,7 +8,7 @@ import { HeaderService } from 'src/app/service/header.service';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input()
+
   titre : string =" ";
 
 

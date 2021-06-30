@@ -42,7 +42,7 @@ export class SurfaceIsolationComponent implements OnInit {
       alert(simulation2);
 
       if (this.simulation.materielSouhaite == null || this.prospect == null || (this.id == null || 0)) {
-        alert(this.simulation.materielSouhaite);
+        // alert(this.simulation.materielSouhaite);
         this.router.navigate(['/']);
       }
       this.surfaceIsolationForm = this.fb.group({

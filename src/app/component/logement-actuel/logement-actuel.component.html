@@ -7,18 +7,18 @@
             (ngSubmit)="onSubmit()">
             <div class="w-100 d-flex flex-column justify-content-around main1">
                 <div class="type-logement d-flex flex-column justify-content-center mt-0 mb-0 btn-group" role="group"
-                    aria-label="Basic outlined example" id="habitation">
+                    aria-label="Basic outlined example" id="typeLogement">
                     <h3 class="align-self-center"><b>Votre logement est </b></h3>
                     <div class="d-flex flex-row justify-content-center w-50 align-self-center">
-                        <input type="radio" class="btn-check m-1" name="habitation" id="btnradio1" autocomplete="off"
-                            value="maison" checked formControlName="habitation">
+                        <input type="radio" class="btn-check m-1" name="typeLogement" id="btnradio1" autocomplete="off"
+                            value="maison" checked formControlName="typeLogement">
                         <label class="btn btn-outline-success w-25 p-1 maison-button mx-2" for="btnradio1">
                             <div class="card-image p-2"> <img src="/assets/images/home.png"></div>
                             <div class="card-body p-0"> <label for="" class="text-center">Une
                                     Maison</label></div>
                         </label>
-                        <input type="radio" class="btn-check" name="habitation" id="btnradio2" autocomplete="off"
-                            value="appartement" formControlName="habitation">
+                        <input type="radio" class="btn-check" name="typeLogement" id="btnradio2" autocomplete="off"
+                            value="appartement" formControlName="typeLogement">
                         <label class="btn btn-outline-success w-25 p-1 appt-button mx-2" for="btnradio2">
                                 <div class="card-image p-2"><img src="/assets/images/building.png"></div>
                                 <div class="card-body p-0"><label for="" class="text-center">Un
@@ -29,17 +29,17 @@
                 <div class="annee-construction d-flex flex-column justify-content-center w-100 align-self-center mt-0">
                     <h3 class="align-self-center"><b>Année de construction</b> </h3>
                     <div class="d-flex flex-row justify-content-center align-self-center w-75" role="group"
-                        aria-label="Basic radio toggle button group" id="annee">
+                        aria-label="Basic radio toggle button group" id="anneeConstruction">
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="annee" id="btnradio3" autocomplete="off"
-                                value="2anset15ans" checked formControlName="annee">
+                            <input type="radio" class="btn-check" name="anneeConstruction" id="btnradio3" autocomplete="off"
+                                value="2anset15ans" checked formControlName="anneeConstruction">
                             <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio3">Entre 2 ans et
                                 15
                                 ans</label>
                         </div>
                         <div class="w-25 d-flex flex-row justify-content-center">
-                            <input type="radio" class="btn-check" name="annee" id="btnradio4" autocomplete="off"
-                                value="plus15ans" formControlName="annee">
+                            <input type="radio" class="btn-check" name="anneeConstruction" id="btnradio4" autocomplete="off"
+                                value="plus15ans" formControlName="anneeConstruction">
                             <label class="btn btn-outline-success w-75 annee-button p-1" for="btnradio4">+ de 15
                                 ans</label>
                         </div>

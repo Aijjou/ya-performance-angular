@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StepperComponent } from './shared/stepper/stepper.component';
 import {MatStepperModule} from '@angular/material/stepper'
 import {MatIconModule} from '@angular/material/icon';
+import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule,
     MatMenuModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    SidebarModule
     
   ],
   providers: [],
