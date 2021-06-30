@@ -59,7 +59,7 @@ export class LocalisationTravauxComponent implements OnInit {
       numero: ['', Validators.required],
       voie: ['', Validators.required],
       ville: ['', Validators.required],
-      code: ['', Validators.required]
+      codePostal: ['', Validators.required]
 
 
     })
@@ -81,13 +81,12 @@ export class LocalisationTravauxComponent implements OnInit {
       } else {
         this.adresse = this.adresseTravauxForm.value;
         this.simulation.beneficiaireTravaux = this.destinationTravauxForm.get('beneficiaire').value;
-        this.simulation.adresseTravaux = this.adresse;
-        this.simulation.prospect = this.prospect;
+        this.adresse;
+        this.prospect;
         console.log(this.simulation);
         localStorage.setItem("simulation", JSON.stringify(this.simulation));
-        // alert("simulation : " + " " + JSON.stringify(this.simulation));
         this.router.navigate(['home', this.id, 'simulation-projet'])
-        this.simulationService.postSimulation(this.simulation, this.id).subscribe(data => {
+        this.simulationService.postSimulation(this.simulation, this.id, this.prospect, this.adresse).subscribe(data => {
           this.infos = data
         })
         console.log(this.infos);

@@ -83,17 +83,9 @@ export class ChauffageInstallationComponent implements OnInit {
 
   }
 
-
-
-
   return() {
     this.router.navigate(['home', this.id, 'equipement-actuel']);
-
   }
-
-
-
-
 
   onSubmit() {
     if (this.chauffageInstallationForm.valid) {
@@ -106,14 +98,12 @@ export class ChauffageInstallationComponent implements OnInit {
           console.log(3);
           this.simulation.materielSouhaite = this.chauffageInstallationForm.get('equipementInstall').value;
           localStorage.setItem("simulation", JSON.stringify(this.simulation));
-          //  alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
           this.router.navigate(['home', this.id, 'montant-estimatif']);
         } else if (this.id == 2) {
           console.log(4);
           this.simulation.materielSouhaite = this.chauffageInstallationForm.get('equipementInstall').value;
           console.log(this.simulation);
            localStorage.setItem("simulation", JSON.stringify(this.simulation));
-          // alert("simulation : " + " " + JSON.stringify(this.simulation) + " \n " + "prospect : " + " " + JSON.stringify(this.prospect));
           this.router.navigate(['home', this.id, 'surface-isolation']);
 
         }

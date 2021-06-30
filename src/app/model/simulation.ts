@@ -10,10 +10,8 @@ export interface Simulation {
     equipeChauffage: string;
     energie: string;
     conso : number;
-    adresseTravaux: Adresse;
     materielSouhaite: string;
     montantEstimeMat: string;
     montantEstimePose: string;
     beneficiaireTravaux : String;
-    prospect : Prospect;
 }

@@ -109,6 +109,7 @@ export class ChauffageActuelComponent implements OnInit {
     if (this.chauffageActuelForm.valid) {
       this.simulation.energie = this.chauffageActuelForm.get('energie').value;
       this.simulation.conso = this.chauffageActuelForm.get('conso').value;
+      console.log(this.simulation);
       localStorage.setItem("simulation", JSON.stringify(this.simulation));
 
       this.router.navigate(['home', this.id, 'equipement-actuel']);

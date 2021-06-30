@@ -18,10 +18,12 @@ export class FormulaireComponent implements OnInit {
   titre: string = " ";
   id: number;
   prospect: Prospect;
+  prospect2: Prospect;
+  prospect3: Prospect;
   submitted: boolean;
   infos: any;
   coordonneeIsCompleted: string = "coordonneeIsCompleted";
-  isCoordonnee : string ="isCoordonnee";
+  isCoordonnee: string = "isCoordonnee";
 
 
 
@@ -88,20 +90,22 @@ export class FormulaireComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("valid " + this.prospectForm.valid);
     if (this.prospectForm.valid) {
       this.prospect = this.prospectForm.value;
-      localStorage.setItem("prospect", JSON.stringify(this.prospect));
       this.serviceForm.postFormulaire(this.prospect, this.id).subscribe(data => {
-        this.infos = data;
-        console.log(this.infos);
-      })
+        this.prospect2 = data;
+        this.serviceForm.envoiProspect(this.prospect2);
+
+        // localStorage.setItem("prospect", JSON.stringify(this.prospect2));
+        // var info = localStorage.getItem("prospect");
+        // this.prospect2 = JSON.parse(info);
+        // console.log(this.prospect2);
+      });
+
       this.router.navigate(['home', this.id, 'logement-actuel']);
     } else {
       this.router.navigate(['home', this.id, 'formulaire']);
-
-
     }
   }
-
-
 }
