@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HeaderComponent } from './shared/header/header.component';
@@ -26,7 +25,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { HomeComponent } from './component/home/home.component';
 import { EquipementActuelComponent } from './component/equipement-actuel/equipement-actuel.component';
 import { SurfaceIsolationComponent } from './component/surface-isolation/surface-isolation.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,12 +32,19 @@ import { StepperComponent } from './shared/stepper/stepper.component';
 import {MatStepperModule} from '@angular/material/stepper'
 import {MatIconModule} from '@angular/material/icon';
 import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
+import { ModalModule, TooltipModule, PopoverModule, ButtonsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { HomeModule } from './modules/home/home.module';
+import { MentionsLegalesComponent } from './component/mentions-legales/mentions-legales.component';
+import { PolitiqueConfidentialiteComponent } from './component/politique-confidentialite/politique-confidentialite.component';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { PolitiqueCookiesComponent } from './component/politique-cookies/politique-cookies.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { RedirectComponent } from './utils/redirect/redirect.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
     FooterComponent,
     FormulaireComponent,
@@ -54,6 +59,12 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     EquipementActuelComponent,
     SurfaceIsolationComponent,
     StepperComponent,
+    MentionsLegalesComponent,
+    PolitiqueConfidentialiteComponent,
+    PolitiqueCookiesComponent,
+    RedirectComponent
+
+    
 
   ],
   imports: [
@@ -77,8 +88,16 @@ import { SidebarModule } from '@syncfusion/ej2-angular-navigations';
     MatMenuModule,
     MatInputModule,
     MatSelectModule,
-    SidebarModule
-    
+    SidebarModule,
+    ModalModule, 
+    TooltipModule, 
+    PopoverModule, 
+    ButtonsModule,
+    MatDialogModule,
+    HomeModule,
+    ScrollToModule.forRoot(),
+    MDBBootstrapModule.forRoot(),
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -55,7 +55,6 @@ export class ChauffageInstallationComponent implements OnInit {
       this.card1 = "Chaudière gaz à condensation"
       this.card2 = "Chaudière à bûches"
       this.card3 = "Ballon thermodynamique"
-      this.card4 = "Pompe à chaleur hybride gaz"
       this.card5 = "Chaudière à granulés de bois"
       this.card6 = "Pompe à chaleur air-air"
       this.card7 = "Pompe à chaleur air-eau"

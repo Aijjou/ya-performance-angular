@@ -1,0 +1,88 @@
+[
+    {
+        "id": 1,
+        "name": "Ballon thermodynamique",
+        "primeRenov": 0,
+        "primeCee": 84
+    },
+    {
+        "id": 2,
+        "name": "Pompes à chaleur géothermiques",
+        "primeRenov": 0,
+        "primeCee": 2727
+    },
+    {
+        "id": 3,
+        "name": "Chaudière à bûches",
+        "primeRenov": 0,
+        "primeCee": 2727
+    },
+    {
+        "id": 4,
+        "name": "Pompes à chaleur air-eau",
+        "primeRenov": 0,
+        "primeCee": 2727
+    },
+    {
+        "id": 5,
+        "name": "Pompes à chaleur air-air",
+        "primeRenov": 0,
+        "primeCee": 450
+    },
+    {
+        "id": 6,
+        "name": "Poêles à granulés",
+        "primeRenov": 0,
+        "primeCee": 545
+    },
+    {
+        "id": 7,
+        "name": "Chaudière gaz à condensation",
+        "primeRenov": 0,
+        "primeCee": 165
+    },
+    {
+        "id": 8,
+        "name": "Chaudière à granulés de bois",
+        "primeRenov": 0,
+        "primeCee": 2727
+    },
+    {
+        "id": 9,
+        "name": "Isolation des murs par l'extérieur",
+        "primeRenov": 15,
+        "primeCee": 18
+    },
+    {
+        "id": 10,
+        "name": "Isolation des murs par l’intérieur",
+        "primeRenov": 7,
+        "primeCee": 18
+    },
+    {
+        "id": 11,
+        "name": "Isolation des combles perdus",
+        "primeRenov": 0,
+        "primeCee": 11
+    },
+    {
+        "id": 12,
+        "name": "Isolation d’un plancher bas",
+        "primeRenov": 0,
+        "primeCee": 11
+    },
+    {
+        "id": 13,
+        "name": "Toitures terrasses",
+        "primeRenov": 15,
+        "primeCee": 11
+    },
+    {
+        "id": 14,
+        "name": "Combles aménagés",
+        "primeRenov": 7,
+        "primeCee": 11
+    }
+]
+
+

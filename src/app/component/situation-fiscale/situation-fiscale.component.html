@@ -1,8 +1,8 @@
 <div class="main">
     <div class="col-2 stepper align-self-center">
-       <app-stepper></app-stepper>
+        <app-stepper></app-stepper>
     </div>
-   <div class="col-10 w-75">
+    <div class="col-10 w-75">
         <form class="container-fluid d-flex flex-column  align-items-center form" [formGroup]="situationFiscaleForm"
             (ngSubmit)="onSubmit()">
             <div class="w-100 d-flex flex-column justify-content-around main">
@@ -13,7 +13,7 @@
                             aria-label="Basic radio toggle button group" id="btnradio">
                             <div class="d-flex flex-row justify-content-center m-2">
                                 <div class="w-25 d-flex flex-row justify-content-center">
-                                    <input type="radio" class="btn-check" name="region" id="btnradio1"
+                                    <input type="radio" class="btn-check" name="region" id="btnradio1" (change)="handleChange($event)"
                                         value="ileDeFrance" autocomplete="off" checked formControlName="region">
                                     <label class="btn btn-outline-success w-50 annee-button align-self-center"
                                         for="btnradio1">
@@ -21,7 +21,7 @@
                                     </label>
                                 </div>
                                 <div class="w-25 d-flex flex-row justify-content-center">
-                                    <input type="radio" class="btn-check" name="region" id="btnradio2"
+                                    <input type="radio" class="btn-check" name="region" id="btnradio2" (change)="handleChange($event)"
                                         value="HorsIleDeFrance" autocomplete="off" formControlName="region">
                                     <label class="btn btn-outline-success w-50 annee-button  align-self-center"
                                         for="btnradio2">
@@ -43,36 +43,35 @@
                             <div class="d-flex flex-row justify-content-center m-2">
                                 <div class="w-25 d-flex flex-row justify-content-center">
                                     <input type="radio" class="btn-check" name="revenu" id="btnradio6"
-                                        autocomplete="off" value="Inférieur à 30572" checked formControlName="revenu">
+                                        autocomplete="off" [value]="revenuRef" checked formControlName="revenu"
+                                        >
                                     <label class="btn btn-outline-success w-75 annee-button align-self-center revenu1"
-                                        for="btnradio6">Inférieur à 30572 &euro;
+                                        for="btnradio6">Moins de {{revenuRef}} &euro;
                                     </label>
                                 </div>
                                 <div class="w-25 d-flex flex-row justify-content-center">
                                     <input type="radio" class="btn-check" name="revenu" id="btnradio7"
-                                        autocomplete="off" value="Compris entre 30572 et 39192"
-                                        formControlName="revenu">
+                                        autocomplete="off" [value]="revenuRef2" formControlName="revenu">
                                     <label class="btn btn-outline-success w-75  align-self-center revenu2"
                                         for="btnradio7">
-                                        Compris entre 30572 &euro; et 39192 &euro;
+                                        Compris entre {{revenuRef}} &euro; et {{revenuRef2}} &euro;
                                     </label>
                                 </div>
                             </div>
                             <div class="d-flex flex-row justify-content-center m-2">
                                 <div class="w-25 d-flex flex-row justify-content-center">
                                     <input type="radio" class="btn-check" name="revenu" id="btnradio8"
-                                        autocomplete="off" value="Compris entre 39192 et 60336"
-                                        formControlName="revenu">
+                                        autocomplete="off" [value]="revenuRef3" formControlName="revenu">
                                     <label class="btn btn-outline-success w-75 annee-button align-self-center revenu3"
-                                        for="btnradio8">Compris entre 39192 &euro; et 60336 &euro;
+                                        for="btnradio8">Compris entre {{revenuRef2}} &euro; et {{revenuRef3}} &euro;
                                     </label>
                                 </div>
                                 <div class="w-25 d-flex flex-row justify-content-center">
                                     <input type="radio" class="btn-check" name="revenu" id="btnradio9"
-                                        autocomplete="off" value="Superieur à 60336" formControlName="revenu">
+                                        autocomplete="off" [value]="revenuRef4" formControlName="revenu">
                                     <label class="btn btn-outline-success w-75 annee-button align-self-center revenu4"
                                         for="btnradio9">
-                                        Supérieur à 39192 &euro;
+                                        Supérieur à {{revenuRef3}} &euro;
                                     </label>
                                 </div>
                             </div>

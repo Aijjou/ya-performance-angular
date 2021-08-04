@@ -22,15 +22,15 @@ export class LocalisationTravauxComponent implements OnInit {
   private titre: string = " ";
   private id: number;
   private infos: any;
-  maSituationActuelleIsCompleted : string = "maSituationActuelleIsCompleted";
-  isBeneficiaire : string = "isBeneficiaire";
+  maSituationActuelleIsCompleted: string = "maSituationActuelleIsCompleted";
+  isBeneficiaire: string = "isBeneficiaire";
 
 
 
   constructor(private headerService: HeaderService,
-     private router: Router, private route: ActivatedRoute, 
-     private fb: FormBuilder, private simulationService: SimulationService, 
-     private stepperService : StepperService) {
+    private router: Router, private route: ActivatedRoute,
+    private fb: FormBuilder, private simulationService: SimulationService,
+    private stepperService: StepperService) {
 
     this.id = this.route.snapshot.params.id;
   }
@@ -84,12 +84,14 @@ export class LocalisationTravauxComponent implements OnInit {
         this.adresse;
         this.prospect;
         console.log(this.simulation);
-        localStorage.setItem("simulation", JSON.stringify(this.simulation));
+
         this.router.navigate(['home', this.id, 'simulation-projet'])
         this.simulationService.postSimulation(this.simulation, this.id, this.prospect, this.adresse).subscribe(data => {
           this.infos = data
+          this.simulation.id = this.infos.id;
+          localStorage.setItem("simulation", JSON.stringify(this.simulation));
         })
-        console.log(this.infos);
+
       }
     } else {
       if (this.simulation == null || this.prospect == null) {

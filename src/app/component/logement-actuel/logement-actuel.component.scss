@@ -17,4 +17,15 @@ h3 {
     border-color: 3px solid;
 }
 
+.retour, .suivant {
+    margin-top: 50px;
+    background-color: #198754;
+    color:white;
+  }
+  
+  .retour:hover, .suivant:hover{
+    -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+  }
+
 

@@ -50,7 +50,7 @@ export class MontantEstmatifComponent implements OnInit {
           }
           case "Chaudière à bûches": {
             this.montantPose = 2000;
-            this.montantMateriel = 5000;
+            this.montantMateriel = 7000;
             break;
           }
           case "Ballon thermodynamique": {

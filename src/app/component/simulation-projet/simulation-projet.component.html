@@ -8,30 +8,30 @@
             <div class="card w-50 d-flex flex-column justify-content-center align-items-center p-1 mb-1 mt-0">
 
                 <div class="card-header w-100 text-center pb-0">
-                    <h1>Ma chaudiere à bûches</h1>
+                    <h1>{{nomAppareil}}</h1>
                 </div>
                 <div class="card-body p-0 w-100">
                     <div class="d-flex flex-row justify-content-between p-2"><label for="" class="p-2">Montant estimé
                             des
                             travaux</label>
-                        <div class="p-2">12 500 &euro;</div>
+                        <div class="p-2">{{coutTravaux}} &euro;</div>
                     </div>
                     <span class="badge d-flex flex-row justify-content-between p-2 m-1 aideTotal">
                         <div class="montant p-2"><i class="fas fa-euro-sign p-2"></i> Montant total des aides</div><span
-                            class="valeur p-2 align-self-center">9375 &euro;</span>
+                            class="valeur p-2 align-self-center">{{montantAide}} &euro;</span>
                     </span>
                     <div class="d-flex flex-row justify-content-between p-1"><label for="" class="p-1"><i>Prime
                                 énergie</i></label>
-                        <div class="p-1"><i>jusqu'à 5500 &euro;</i></div>
+                        <div class="p-1"><i>jusqu'à {{primEnergie}} &euro;</i></div>
                     </div>
                     <div class="d-flex flex-row justify-content-between p-1"><label for=""
                             class="p-1"><i>MaPrimeRenov</i></label>
-                        <div class="p-1"><i>jusqu'à 3875 &euro;</i></div>
+                        <div class="p-1"><i>jusqu'à {{primRenov}} &euro;</i></div>
                     </div>
                     <span class="badge badge-info d-flex flex-row justify-content-between resteACharge p-2 m-1">
                         <div class="montant p-2"><i class="fas fa-euro-sign p-1"></i> Reste à charge<sup
                                 class="indice1">(1)</sup></div><span class="valeur p-2 align-self-center"> <i
-                                class="fas fa-wallet"></i> &nbsp; 3125 &euro;</span>
+                                class="fas fa-wallet"></i> &nbsp; {{resteACharge}} &euro;</span>
                     </span>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <span class="badge d-flex flex-row justify-content-center p-2 w-100 parMois">
-                    <div class="p-1 valeur-mensualite"> 52 &euro; /Mois</div><span
+                    <div class="p-1 valeur-mensualite"> {{mensualite | number: '1.0-0' }} &euro; /Mois</div><span
                         class="p-1 align-self-center periode">pendant
                         60 mois</span>
                 </span>
@@ -117,7 +117,7 @@
         <div class="d-flex flex-row justify-content-around w-100">
             <div class="button-group d-flex flex-row justify-content-around mt-4 w-50 align-self-center">
                 <a (click)="openPDF()" class="btn w-25 retour">Imprimer</a>
-                <a routerLink="/home" class="btn w-25 suivant">Envoi</a>
+                <a (click)="creationDevis()" class="btn w-25 suivant">Envoi</a>
             </div>
         </div>
     </div>
