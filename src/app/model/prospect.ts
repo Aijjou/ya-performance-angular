@@ -9,7 +9,7 @@ export interface Prospect{
     code : string;
     situationFamilliale:string;
     personneCharge : number;
-    revenuRef :string;
+    revenuRef :number;
     lieuHabitation : string;
     contactConseiller : boolean;
     promo : boolean;

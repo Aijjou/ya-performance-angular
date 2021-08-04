@@ -128,7 +128,6 @@ export class EquipementActuelComponent implements OnInit {
       }
       case "pompe": {
         this.energie = "pompe";
-        this.typeChauffage1 = "Pompe à chaleur";
         this.typeChauffage2 = "Pompe à chaleur air-eau";
         this.typeChauffage3 = "Pompe à chaleur eau-eau";
         this.typeChauffage4 = "Pompe à chaleur géothermique";

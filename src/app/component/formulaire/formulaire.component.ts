@@ -6,12 +6,14 @@ import { Prospect } from 'src/app/model/prospect';
 import { FormulaireService } from 'src/app/service/formulaire.service';
 import { HeaderService } from 'src/app/service/header.service';
 import { StepperService } from 'src/app/service/stepper.service';
-import { isJsxSelfClosingElement } from 'typescript';
+
 
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
-  styleUrls: ['./formulaire.component.scss']
+  styleUrls: ['./formulaire.component.scss'
+
+  ]
 })
 export class FormulaireComponent implements OnInit {
   prospectForm: FormGroup;
@@ -24,19 +26,23 @@ export class FormulaireComponent implements OnInit {
   infos: any;
   coordonneeIsCompleted: string = "coordonneeIsCompleted";
   isCoordonnee: string = "isCoordonnee";
-
-
-
-
+  stop: boolean = false;
 
   constructor(private headerService: HeaderService, private router: Router, private route: ActivatedRoute,
     private fomrBuild: FormBuilder, private serviceForm: FormulaireService,
     private stepperService: StepperService) {
     this.id = this.route.snapshot.params.id;
 
-  }
 
+  }
   ngOnInit(): void {
+    if (!localStorage.getItem('firstReload') || localStorage.getItem('firstReload') == 'true') {
+      localStorage.setItem('firstReload', 'false');
+      window.location.reload();
+    } else {
+      localStorage.setItem('firstReload', 'true');
+    }
+
     this.titre = " Prise de contact";
     this.headerService.changementTitre(this.titre);
     this.stepperService.selectionneUnStep(this.coordonneeIsCompleted, this.isCoordonnee, this.id);
@@ -61,7 +67,6 @@ export class FormulaireComponent implements OnInit {
 
 
   }
-
 
   get nom() {
     return this.prospectForm.get('nom');
@@ -89,6 +94,15 @@ export class FormulaireComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
+
+
   onSubmit() {
     console.log("valid " + this.prospectForm.valid);
     if (this.prospectForm.valid) {
@@ -96,11 +110,6 @@ export class FormulaireComponent implements OnInit {
       this.serviceForm.postFormulaire(this.prospect, this.id).subscribe(data => {
         this.prospect2 = data;
         this.serviceForm.envoiProspect(this.prospect2);
-
-        // localStorage.setItem("prospect", JSON.stringify(this.prospect2));
-        // var info = localStorage.getItem("prospect");
-        // this.prospect2 = JSON.parse(info);
-        // console.log(this.prospect2);
       });
 
       this.router.navigate(['home', this.id, 'logement-actuel']);

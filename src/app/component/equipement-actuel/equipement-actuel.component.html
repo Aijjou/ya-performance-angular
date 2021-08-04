@@ -12,10 +12,10 @@
                                         </h3>
                                         <div class="d-flex flex-column justify-content-center w-50 align-self-center">
                                                 <div class="d-flex flex-row justify-content-center">
-                                                        <input type="radio" class="btn-check" name="equipement"
+                                                        <input type="radio" class="btn-check" name="equipement" *ngIf="energie!='pompe'"
                                                                 id="btnradio1" autocomplete="off" checked
                                                                 [value]="typeChauffage1" formControlName="equipement">
-                                                        <label class="btn btn-outline-success w-25 p-1 maison-button m-2"
+                                                        <label class="btn btn-outline-success w-25 p-1 maison-button m-2" *ngIf="energie!='pompe'"
                                                                 for="btnradio1">
 
                                                                 <div class="card-image p-2" *ngIf="energie=='gaz'"><img
@@ -23,9 +23,6 @@
                                                                 <div class="card-image p-2"
                                                                         *ngIf="energie=='electricite'"><img
                                                                                 src="/assets/images/convecter-electrique.png">
-                                                                </div>
-                                                                <div class="card-image p-2" *ngIf="energie=='pompe'">
-                                                                        <img src="/assets/images/pompe-air-air.png">
                                                                 </div>
                                                                 <div class="card-image p-2" *ngIf="energie=='gpl'"><img
                                                                                 src="/assets/images/chaudiere-gpl-basse-temperature.png">
@@ -135,7 +132,7 @@
                                                                                 src="/assets/images/radiateur-gpl.png">
                                                                 </div>
                                                                 <div class="card-image p-2" *ngIf="energie=='fioul'">
-                                                                        <img src="/assets/images/poele-fioul.svg">
+                                                                        <img src="/assets/images/poele-fioul.png">
                                                                 </div>
                                                                 <div class="card-image p-2" *ngIf="energie=='bois'"><img
                                                                                 src="/assets/images/chaudiere-granule-bois.PNG">

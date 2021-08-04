@@ -7,13 +7,17 @@ import { FormulaireComponent } from './component/formulaire/formulaire.component
 import { HomeComponent } from './component/home/home.component';
 import { LocalisationTravauxComponent } from './component/localisation-travaux/localisation-travaux.component';
 import { LogementActuelComponent } from './component/logement-actuel/logement-actuel.component';
+import { MentionsLegalesComponent } from './component/mentions-legales/mentions-legales.component';
 import { MontantEstmatifComponent } from './component/montant-estmatif/montant-estmatif.component';
+import { PolitiqueConfidentialiteComponent } from './component/politique-confidentialite/politique-confidentialite.component';
+import { PolitiqueCookiesComponent } from './component/politique-cookies/politique-cookies.component';
 import { SimulationProjetComponent } from './component/simulation-projet/simulation-projet.component';
 import { SituationFamillialeComponent } from './component/situation-familliale/situation-familliale.component';
 import { SituationFiscaleComponent } from './component/situation-fiscale/situation-fiscale.component';
 import { SurfaceIsolationComponent } from './component/surface-isolation/surface-isolation.component';
+import { RedirectComponent } from './utils/redirect/redirect.component';
 
-const routes: Routes = [
+const routes: Routes = [ 
   { path: 'home', component: HomeComponent },
   { path: 'home/:id/formulaire', component: FormulaireComponent },
   { path: 'home/:id/logement-actuel', component: LogementActuelComponent },
@@ -26,6 +30,10 @@ const routes: Routes = [
   { path: 'home/:id/simulation-projet', component: SimulationProjetComponent },
   { path: 'home/:id/equipement-actuel', component: EquipementActuelComponent },
   { path: 'home/:id/surface-isolation', component: SurfaceIsolationComponent },
+  { path: 'mentions-legales', component: MentionsLegalesComponent },
+  { path: 'politique-confidentialite', component: PolitiqueConfidentialiteComponent },
+  { path: 'politique-cookies', component: PolitiqueCookiesComponent },
+  { path: 'redirect', component: RedirectComponent},
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent },
 ];

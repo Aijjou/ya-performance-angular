@@ -1,6 +1,3 @@
-import { Adresse } from "./adresse";
-import { Prospect } from "./prospect";
-
 export interface Simulation {
     id:number;
     typeLogement: string;

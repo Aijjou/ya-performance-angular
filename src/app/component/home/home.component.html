@@ -54,17 +54,18 @@
   </div>
   <form>
     <ejs-sidebar id="default-sidebar" #rightSidebar (created)="onCreated($event)" style="visibility:visible"
-      [position]='position' [enableGestures]="enableGestures" class="align-items-center shadow-lg">
+      [position]='position' [enableGestures]="enableGestures" class="align-items-center shadow-lg pt-3">
 
-      <div class="card-header mt-2 mx-0 w-100 text-center" *ngIf="beforeValidation == true">
+      <div class="card-header mt-3  mx-0 w-100 text-center" *ngIf="beforeValidation == true">
         <h3 class="m-0 p-0"> <i class="fas fa-headphones-alt"></i> &nbsp;Un conseiller vous appelle</h3>
       </div>
-      <div class="card-header mx-0 w-100 text-center" *ngIf="beforeValidation != true">
+      <div class="card-header mt-3 mx-0 w-100 text-center" *ngIf="beforeValidation != true">
         <h3 class="m-0 p-0"> <i class="fas fa-headphones-alt"></i> &nbsp;Merci pour votre demande</h3>
       </div>
       <div class="card-body p-4 " *ngIf="beforeValidation == true">
         <form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
-          <select class="form-select form-select-md mb-3" aria-label=".form-select-sm example" name="civilite" id="civilite" ngModel>
+          <select class="form-select form-select-md mb-3" aria-label=".form-select-sm example" name="civilite"
+            id="civilite" ngModel>
             <option value="" disabled selected>Civilite</option>
             <option selected value="Madame">Madame</option>
             <option value="Monsieur">Monsieur</option>
@@ -114,7 +115,8 @@
               </label>
             </div>
           </div>
-          <button class="btn btn-primary w-100" type="submit" [disabled]="!myform.valid">validation</button>
+          <button id="validation" class="btn w-100 mb-4 p-2" type="submit"
+            [disabled]="!myform.valid">validation</button>
         </form>
       </div>
       <div class="card-body p-4 d-flex flex-column justify-content-center" *ngIf="beforeValidation != true">
@@ -124,12 +126,89 @@
       </div>
 
 
-      <button ejs-button id="but" (click)="toggleClick()" class="btn btn-primary flicker-2"><svg
-          xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-          class="bi bi-telephone-forward-fill" viewBox="0 0 16 16">
+      <button id="but" (click)="toggleClick()" class="btn btn-primary flicker-2 text-center"><svg
+          xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-telephone-forward-fill"
+          viewBox="0 0 16 16">
           <path fill-rule="evenodd"
             d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.761.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z" />
         </svg></button>
     </ejs-sidebar>
+
+
   </form>
-</div>
+  <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal" data-target="#basicExample"
+    style="visibility:hidden" (click)="open()" mdbWavesEffect>
+  </button>
+
+  <div mdbModal #frame="mdbModal" class="modal fade bottom modal-scrolling " id="frameModalTop" tabindex="-1" #modal
+    role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+    [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-frame modal-bottom modal-notify modal-info" role="document">
+      Content
+      <div class="modal-content">
+        Body
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
+
+            <p class="pt-3 pr-2 col-8 text-center font-weight-bold">Nous utilisons les cookies afin d'améliorer votre
+              expérience utilisateur et de vous permettre d'effectuer la simulation.</p>
+            <span class="col-4"><a type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal2"
+                data-target="#basicExample" (click)="frame2.show()" mdbWavesEffect>Paramétrer les cookies
+
+              </a>
+
+              <a type="button" mdbBtn color="primary" class="btn btn-primary col-5" mdbWavesEffect data-dismiss="modal"
+                 (click)="accept()">Accepter</a></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div mdbModal #frame2="mdbModal" class="modal modal2 fade" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex flex-column justify-content-center">
+          <h2 class="modal-title text-dark text-center mb-0">
+            <i class="fas fa-cookie text-primary"></i> &nbsp;<b>Cookies et paramètres de confidentialité</b>
+          </h2>
+        </div>
+        <div class="modal-body text-dark p-2">
+          <div class="d-flex">
+            <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-pills col-4 mr-2" orientation="vertical">
+              <li ngbNavItem="top">
+                <a ngbNavLink class="p-2 mr-2 text-center">Utilisation des cookies</a>
+                <ng-template ngbNavContent class="p-2 m-2">
+                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua,
+                    retro synth
+                    master cleanse.</p>
+                </ng-template>
+              </li>
+              <li ngbNavItem="middle">
+                <a ngbNavLink>Cookies essentiels</a>
+                <ng-template ngbNavContent>
+                  <p>Ces cookies sont strictement nécéssaires pour vous fournir des services disponibles sur notre site
+                    web et d'utiliser certaines de ses fonctionnalités</p>
+                  <p>Puisque ces cookies sont strictement nécéssaires pour faire fonctionner le site, vous ne pouvez pas les
+                    refuser sans impacter sur la façon dont notre site fonctionne.</p>
+                </ng-template>
+              </li>
+              <li ngbNavItem="bottom">
+                <a ngbNavLink class="p-2 mr-2 text-center">Confidentialité</a>
+                <ng-template ngbNavContent class="p-2 m-2">
+                  <div class="d-flex flex-column justify-content-center"><a
+                      routerLink="/politique-confidentialite">Politique de confidentialité.</a></div>
+                </ng-template>
+              </li>
+            </ul>
+            <div [ngbNavOutlet]="nav" class="mx-2"></div>
+          </div>
+          <div class="modal-footer mt-2">
+            <a type="button" class="btn btn-light text-dark" data-dismiss="modal" routerLink="/redirect"
+              >Refuser</a>
+            <button type="button" class="btn btn-primary text-white" (click)="accept()">Accepter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
